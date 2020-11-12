@@ -10,6 +10,8 @@ public class GridGenerator : MonoBehaviour
     public Transform tilePrefab;
     public Vector2 gridSize;
 
+    public float xOF, yOF, zOF;
+
     public Transform[] prefabList = new Transform[10];
 
     [Range(0, 1)]
@@ -44,8 +46,12 @@ public class GridGenerator : MonoBehaviour
         {
             for (int y = 0; y < gridSize.y; y++)
             {
-                Vector3 tilePosition = new Vector3(-gridSize.x / 2 + 0.5f + x, 0, -gridSize.y / 2 + 0.5f + y);
+                //Vector3 tilePosition = new Vector3(-gridSize.x / 2 + 0.5f + x + xOF, -gridSize.y / 2 + 0.5f + y + yOF, zOF);
+                //Transform newTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as Transform;
+
+                Vector3 tilePosition = new Vector3(-gridSize.x / 2 + 0.5f + x + xOF, zOF, -gridSize.y / 2 + 0.5f + y + yOF);
                 Transform newTile = Instantiate(tilePrefab, tilePosition, Quaternion.Euler(Vector3.right * 90)) as Transform;
+
                 newTile.localScale = Vector3.one * (1 - outlinePercent);
                 newTile.parent = mapHolder;
                 newTile.name = "Quad " + x.ToString() + ", " + y.ToString();
