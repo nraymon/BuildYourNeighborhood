@@ -11,12 +11,16 @@ public class Draggable : MonoBehaviour
     //    }
 
     GameObject obj;
-    GameObject gridObj;
+    public GameObject gridObj;
 
     Plane objPlane;
 
     Ray mouseRay;
     Ray mouseRay2;
+
+    StateManager state;
+
+    Vector3 begin;
 
     Vector3 mo;
 
@@ -30,6 +34,12 @@ public class Draggable : MonoBehaviour
 
         Ray mr = new Ray(mousePosN, mousePosF - mousePosN);
         return mr;
+    }
+
+    private void Start()
+    {
+        state = GameObject.Find("StateManager").GetComponent<StateManager>();
+        begin = new Vector3(4.54f, .64f, -1.36f);
     }
 
     //private void FixedUpdate()
@@ -73,6 +83,7 @@ public class Draggable : MonoBehaviour
                 col.b = 0;
                 this.GetComponent<Renderer>().material.SetColor("_Color", col);
             }
+
         } if (Input.GetMouseButton(0) && obj)
         {
             Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -106,9 +117,14 @@ public class Draggable : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0) && obj && gridObj)
         {
-            gridObj.GetComponent<Renderer>().enabled = false;
+            //gridObj.GetComponent<Renderer>().enabled = false;
+            Destroy(gridObj);
             //obj.transform.rotation = gridObj.transform.rotation;
             obj.transform.position = gridObj.transform.position;
+            obj.transform.position += new Vector3(0, .5f, 0);
+            obj.layer = 0;
+            Destroy(GetComponent<Draggable>());
+            state.SetSpawn(true);
 
             //obj.transform.Translate(gridObj.transform.position);
             obj = null;
@@ -122,7 +138,6 @@ public class Draggable : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0) && obj)
         {
-            Debug.Log("not same");
             obj = null;
             Color32 col = this.GetComponent<Renderer>().material.GetColor("_Color");
             col.a = 255;
