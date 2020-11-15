@@ -34,6 +34,9 @@ public class GridGenerator : MonoBehaviour
     {
 
         string holderName = "Generated Map";
+        // Only needed if the grid is generated without playing the game.
+        // If the grid has been generated and the grid no longer needs to be
+        // seen, it should be destroyed.
         if (transform.FindChild(holderName))
         {
             DestroyImmediate(transform.FindChild(holderName).gameObject);
@@ -42,13 +45,14 @@ public class GridGenerator : MonoBehaviour
         Transform mapHolder = new GameObject(holderName).transform;
         mapHolder.parent = transform;
 
+        // loops through the desired height and width of the grid, gets
+        // each position of a grid piece using tilePosition and instantiates
+        // an object at that location. It can then determine how much space
+        // should be between each grid piece by scaling it accordingly.
         for (int x = 0; x < gridSize.x; x++)
         {
             for (int y = 0; y < gridSize.y; y++)
             {
-                //Vector3 tilePosition = new Vector3(-gridSize.x / 2 + 0.5f + x + xOF, -gridSize.y / 2 + 0.5f + y + yOF, zOF);
-                //Transform newTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as Transform;
-
                 Vector3 tilePosition = new Vector3(-gridSize.x / 2 + 0.5f + x + xOF, zOF, -gridSize.y / 2 + 0.5f + y + yOF);
                 Transform newTile = Instantiate(tilePrefab, tilePosition, Quaternion.Euler(Vector3.right * 90)) as Transform;
 

@@ -6,6 +6,8 @@ using UnityEditor;
 [CustomEditor (typeof(GridGenerator))]
 public class MapEditor : Editor
 {
+
+    //Allows the grid to be generated without actually playing
     [System.Obsolete]
     public override void OnInspectorGUI()
     {
