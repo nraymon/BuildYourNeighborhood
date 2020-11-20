@@ -7,8 +7,8 @@ public class SpawnDraggable : MonoBehaviour
 {
 
     public GameObject spawnObj;
-    GameObject temp;
-
+    GameObject spawnedTile;
+    public TileValues.TileType tileType; 
     int num;
 
     Draggable drag;
@@ -48,12 +48,22 @@ public class SpawnDraggable : MonoBehaviour
 
             // if the ray cast hits this object and spawning is true, then a draggable object
             // is instantiated, has its name changed and spawn will now be false.
+                //question: What is the bit shifting logic for? 
             if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Draggable")) && state.GetSpawn())
             {
-                temp = Instantiate(spawnObj);
-                temp.name = temp.name + num;
+                spawnedTile = Instantiate(spawnObj);
+                spawnedTile.name = spawnedTile.name + num;
                 state.SetSpawn(false);
                 num++;
+
+                
+                TileValues tileValues = spawnedTile.GetComponent<TileValues>();
+                //tileValues.name = "Road Tile " + num;
+                //tileValues.type = "Road";
+                //tileValues.beauty = 1.5f;
+                //tileValues.temperature = 2.0f;
+
+                tileValues.AssignValues(num, tileType);
             }
         }
 

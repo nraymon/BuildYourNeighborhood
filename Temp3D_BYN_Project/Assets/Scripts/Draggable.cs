@@ -150,6 +150,11 @@ public class Draggable : MonoBehaviour
             col.g = 255;
             col.b = 255;
             this.GetComponent<Renderer>().material.SetColor("_Color", col);
+
+
+            //on successful tile placement, print the tile values to console 
+            TileValues tileValues = GetComponent<TileValues>();
+            tileValues.PrintValues();
         }
 
         // If the mouse button is let go and we only have the draggable object,
@@ -163,6 +168,9 @@ public class Draggable : MonoBehaviour
             col.g = 255;
             col.b = 255;
             this.GetComponent<Renderer>().material.SetColor("_Color", col);
+
         }
+
+        
     }
 }
