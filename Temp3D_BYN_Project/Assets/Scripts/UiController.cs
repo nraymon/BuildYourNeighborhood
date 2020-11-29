@@ -16,15 +16,18 @@ public class UiController : MonoBehaviour
 
     List<Button> buttonList;
 
+
+    StateManager state;
+
     private void Start()
     {
+        state = GameObject.Find("GameManager").GetComponent<StateManager>();
+
         buttonList = new List<Button> { PlaceHouseBtn };
 
         PlaceHouseBtn.onClick.AddListener(() =>
         {
-            Debug.Log("hello\n");
-            ResetButtonColor();
-            ModifyOutline(PlaceHouseBtn);
+            state.Undo();
             OnHousePlacement?.Invoke();
         });
     }

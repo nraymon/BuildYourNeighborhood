@@ -5,22 +5,18 @@ using UnityEngine;
 public class MoveProperties : MonoBehaviour
 {
 
+    // This will be the game object being placed
     public GameObject gameObj;
+    // This is the object the placed tile will be replaced with
     public GameObject replacementObj;
 
+    // This is used to swap the tiles at the correct position (might not acutally need this? not currently using)
     public Transform objPos;
-
-    //public MoveProperties(GameObject obj, Vector3 pos)
-    //{
-    //    GameObj = obj;
-    //    ObjPos = pos;
-    //}
 
     public void UndoMove()
     {
         Destroy(gameObj);
         replacementObj.SetActive(true);
-        //replacementObj = null;
     }
 
 }

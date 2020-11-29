@@ -28,6 +28,7 @@ public class Draggable : MonoBehaviour
     // Used to determine if a new draggable object should be spawned
     StateManager state;
 
+    // allows the script to push a move onto the moves stack in StateManager
     MoveProperties move;
 
     // State, click and color all need to be initialized with getComponent for unity to be pleased
@@ -36,7 +37,9 @@ public class Draggable : MonoBehaviour
         state = GameObject.Find("GameManager").GetComponent<StateManager>();
         click = GameObject.Find("GameManager").GetComponent<LocateMouse>();
         color = GameObject.Find("GameManager").GetComponent<ObjColorShading>();
-        move = new MoveProperties();// GameObject.Find("GameManager").GetComponent<MoveProperties>();
+
+        // for now this needs to be new for the other elements in the moves stack to be unique
+        move = new MoveProperties();
     }
 
     private void Update()
@@ -113,16 +116,16 @@ public class Draggable : MonoBehaviour
         // "pile." Both object are set to null and the color is returned to drag object.
         if (Input.GetMouseButtonUp(0) && obj && gridObj)
         {
-            //move = GameObject.Find("GameManager").GetComponent<MoveProperties>();
+            // setting up the move element to be placed on the moves Stack in StateManager
             move.gameObj = obj;
             move.objPos = obj.transform;
             move.replacementObj = gridObj;
             state.AddElement(move);
-            //state.moves.Push(move);
 
-            // Destroy might need to be changed later
-            //Destroy(gridObj);
+            // no more destroying the gridObj, this allows for undoing a move
             gridObj.SetActive(false);
+
+            // abstract this block in a function?
             obj.transform.position = gridObj.transform.position;
             obj.transform.position += new Vector3(0, .5f, 0);
             obj.layer = 0;
