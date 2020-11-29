@@ -11,30 +11,17 @@ public class SpawnDraggable : MonoBehaviour
 
     int num;
 
-    Draggable drag;
+    LocateMouse click;
 
     StateManager state;
 
     Ray mouseRay;
 
-    // Generates a ray from the near clipping field plane to the far clipping plane
-    // based on mouse location in the viewport
-    Ray GenerateMouseRay()
-    {
-        Vector3 mousePosFar = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.farClipPlane);
-        Vector3 mousePosNear = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane);
-
-        Vector3 mousePosF = Camera.main.ScreenToWorldPoint(mousePosFar);
-        Vector3 mousePosN = Camera.main.ScreenToWorldPoint(mousePosNear);
-
-        Ray mr = new Ray(mousePosN, mousePosF - mousePosN);
-        return mr;
-    }
-
     // Start is called before the first frame update
     void Start()
     {
-        state = GameObject.Find("StateManager").GetComponent<StateManager>();
+        state = GameObject.Find("GameManager").GetComponent<StateManager>();
+        click = GameObject.Find("GameManager").GetComponent<LocateMouse>();
     }
 
     // Update is called once per frame
@@ -43,7 +30,7 @@ public class SpawnDraggable : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            mouseRay = GenerateMouseRay();
+            mouseRay = click.GenerateMouseRay();
             RaycastHit hit;
 
             // if the ray cast hits this object and spawning is true, then a draggable object
