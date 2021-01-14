@@ -9,6 +9,8 @@ public class SpawnDraggable : MonoBehaviour
     public GameObject spawnObj;
     GameObject temp;
 
+    public TileValues.TileType tileType;
+
     int num;
 
     LocateMouse click;
@@ -41,6 +43,14 @@ public class SpawnDraggable : MonoBehaviour
                 temp.name = temp.name + num;
                 state.SetSpawn(false);
                 num++;
+
+                TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
+                //tileValues.name = "Road Tile " + num;
+                //tileValues.type = "Road";
+                //tileValues.beauty = 1.5f;
+                //tileValues.temperature = 2.0f;
+
+                tileValues.AssignValues(num, tileType);
             }
         }
 

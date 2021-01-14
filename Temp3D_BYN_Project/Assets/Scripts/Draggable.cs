@@ -135,6 +135,9 @@ public class Draggable : MonoBehaviour
 
             this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
             obj = null;
+
+            TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
+            tileValues.PrintValues();
         }
 
         // If the mouse button is let go and we only have the draggable object,

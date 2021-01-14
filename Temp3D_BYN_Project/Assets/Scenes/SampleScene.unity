@@ -466,6 +466,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1496490622516024627, guid: 95e398313b931c04988f6d570bfd78ac,
         type: 3}
+    - target: {fileID: -6293133291119410321, guid: c3f4ee716c3f0bf418c1f153a2c608d9,
+        type: 3}
+      propertyPath: tileType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4209121507894448553, guid: c3f4ee716c3f0bf418c1f153a2c608d9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1709,6 +1714,7 @@ GameObject:
   - component: {fileID: 922441649}
   - component: {fileID: 922441648}
   - component: {fileID: 922441650}
+  - component: {fileID: 922441651}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1781,6 +1787,22 @@ MonoBehaviour:
   gameObj: {fileID: 0}
   replacementObj: {fileID: 0}
   objPos: {fileID: 0}
+--- !u!114 &922441651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922441645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc4326d946d3694fa2153c4b95bc2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  type: 0
+  beauty: 0
+  temperature: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
