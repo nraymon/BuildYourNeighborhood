@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4498265685249979298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4498265685249979308}
+  - component: {fileID: 4498265685249979309}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4498265685249979308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4498265685249979298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.88687396, y: -0.28586674, z: 0.6100812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4498265685249979309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4498265685249979298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc023c126ba8d1419d771fbc7aeaff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePrefab: {fileID: 325928521347958314, guid: be0993d930198e14a97ec889d845bd58,
+    type: 3}
+  gridSize: {x: 5, y: 5}
+  prefabList:
+  - {fileID: 9156559008275555952, guid: 297fe1897b78beb4184fbf4010a99226, type: 3}
+  - {fileID: 2954525837670189382, guid: c7e5ef77091586143b6a2a5eedce7bd8, type: 3}
+  - {fileID: 3300056178495251035, guid: 6064b99abd4abf648b81c0084cf314a3, type: 3}
+  - {fileID: 4736411894849934522, guid: 3e1879cf8b214ff41bd2fb4e1492e907, type: 3}
+  - {fileID: 966666752326970360, guid: 21b82065f4488a04fab34e19337d42e0, type: 3}
+  - {fileID: -8679921383154817045, guid: d6176753239f176479541a66c0b98cc2, type: 3}
+  - {fileID: -8679921383154817045, guid: bf04fa9a56ea26a4893904604bb655ae, type: 3}
+  - {fileID: -8679921383154817045, guid: 39f8d0d04220f6f4dab3c0636f6910b4, type: 3}
+  - {fileID: -8679921383154817045, guid: e8c59a75f7dce7d4885ba163967ff724, type: 3}
+  - {fileID: -8679921383154817045, guid: 76b20f1a89b38214b9cd8d05a4b0943f, type: 3}
+  outlinePercent: 0.076
