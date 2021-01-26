@@ -15,15 +15,28 @@ public class StateManager : MonoBehaviour
     // move will be used when the player wishes to undo their move; it will become the move popped off the stack
     MoveProperties move;
 
+    public int[,] gridPositions; 
+
+    void Start()
+    {
+        gridPositions = new int[5, 5] { { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 } };
+    }
+
     private void Update()
     {
-
+        
     }
 
     // allows for adding an element to a data structure without changed other code
-    public void AddElement(MoveProperties move)
+    public void AddElement(MoveProperties move, string placement)
     {
         moves.Push(move);
+        int col = (int)Char.GetNumericValue(placement[0]);
+        int row = (int)Char.GetNumericValue(placement[2]);
+
+        Debug.Log("col: " + col + "\n" + "row: " + row + "\n");
+
+        gridPositions[col, row] = 1;
     }
 
     public void Undo()

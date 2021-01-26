@@ -120,7 +120,7 @@ public class Draggable : MonoBehaviour
             move.gameObj = obj;
             move.objPos = obj.transform;
             move.replacementObj = gridObj;
-            state.AddElement(move);
+            state.AddElement(move, gridObj.name);
 
             // no more destroying the gridObj, this allows for undoing a move
             gridObj.SetActive(false);
