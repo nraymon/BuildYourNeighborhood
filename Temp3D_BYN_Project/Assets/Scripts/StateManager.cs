@@ -15,29 +15,43 @@ public class StateManager : MonoBehaviour
     // move will be used when the player wishes to undo their move; it will become the move popped off the stack
     MoveProperties move;
 
-    public int[,] gridPositions;
+    public float[,] gridPositions;
 
     void Start()
     {
-        gridPositions = new int[5, 5] { { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 } };
+        gridPositions = new float[5, 5] { { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f } };
     }
 
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            float sum = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                int j;
+                for (j = 0; j < 5; j++)
+                {
+                    sum += gridPositions[j, i];
+                }
 
+                Debug.Log("Row " + i + " contains " + sum + " points.");
+                sum = 0;
+            }
+        }
     }
 
     // allows for adding an element to a data structure without changed other code
-    public void AddElement(MoveProperties move, string placement)
+    public void AddElement(MoveProperties move, string placement, float score)
     {
         moves.Push(move);
         int col = (int)Char.GetNumericValue(placement[0]);
         int row = (int)Char.GetNumericValue(placement[2]);
 
-        Debug.Log("col: " + col + "\n" + "row: " + row + "\n");
+        Debug.Log("Temp: " + score + "\n" + "col: " + col + "\n" + "row: " + row + "\n");
 
-        gridPositions[col, row] = 1;
+        gridPositions[col, row] = score;
     }
 
     public void Undo()

@@ -116,11 +116,15 @@ public class Draggable : MonoBehaviour
         // "pile." Both object are set to null and the color is returned to drag object.
         if (Input.GetMouseButtonUp(0) && obj && gridObj)
         {
+
+            TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
+            tileValues.PrintValues();
+
             // setting up the move element to be placed on the moves Stack in StateManager
             move.gameObj = obj;
             move.objPos = obj.transform;
             move.replacementObj = gridObj;
-            state.AddElement(move, gridObj.name);
+            state.AddElement(move, gridObj.name, tileValues.temperature);
 
             // no more destroying the gridObj, this allows for undoing a move
             gridObj.SetActive(false);
@@ -136,8 +140,8 @@ public class Draggable : MonoBehaviour
             this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
             obj = null;
 
-            TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
-            tileValues.PrintValues();
+            //TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
+            //tileValues.PrintValues();
         }
 
         // If the mouse button is let go and we only have the draggable object,
