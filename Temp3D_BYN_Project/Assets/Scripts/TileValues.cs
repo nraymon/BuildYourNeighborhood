@@ -9,6 +9,11 @@ public class TileValues : MonoBehaviour
     public float beauty;
     public float temperature;
 
+    public GameObject RoadSpawn;
+    public GameObject BioSpawn;
+    public GameObject WetSpawn;
+    public GameObject HouSpawn;
+
     //enum to allow tiles to distinguish their tile type
     public enum TileType
     {
@@ -25,6 +30,26 @@ public class TileValues : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public GameObject GetRoad()
+    {
+        return RoadSpawn;
+    }
+
+    public GameObject GetHouse()
+    {
+        return HouSpawn;
+    }
+
+    public GameObject GetWet()
+    {
+        return WetSpawn;
+    }
+
+    public GameObject GetBio()
+    {
+        return BioSpawn;
     }
 
     public void AssignValues(int num, TileType tileType)

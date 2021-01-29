@@ -31,12 +31,15 @@ public class Draggable : MonoBehaviour
     // allows the script to push a move onto the moves stack in StateManager
     MoveProperties move;
 
+    TileValues tileValues;
+
     // State, click and color all need to be initialized with getComponent for unity to be pleased
     private void Start()
     {
         state = GameObject.Find("GameManager").GetComponent<StateManager>();
         click = GameObject.Find("GameManager").GetComponent<LocateMouse>();
         color = GameObject.Find("GameManager").GetComponent<ObjColorShading>();
+        tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
 
         // for now this needs to be new for the other elements in the moves stack to be unique
         move = new MoveProperties();
@@ -44,6 +47,7 @@ public class Draggable : MonoBehaviour
 
     private void Update()
     {
+        
 
         if (Input.GetMouseButton(0))
         {
@@ -116,8 +120,6 @@ public class Draggable : MonoBehaviour
         // "pile." Both object are set to null and the color is returned to drag object.
         if (Input.GetMouseButtonUp(0) && obj && gridObj)
         {
-
-            TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
             tileValues.PrintValues();
 
             // setting up the move element to be placed on the moves Stack in StateManager

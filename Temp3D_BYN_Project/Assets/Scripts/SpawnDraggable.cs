@@ -11,6 +11,8 @@ public class SpawnDraggable : MonoBehaviour
 
     public TileValues.TileType tileType;
 
+    TileValues tVal;
+
     int num;
 
     LocateMouse click;
@@ -24,11 +26,18 @@ public class SpawnDraggable : MonoBehaviour
     {
         state = GameObject.Find("GameManager").GetComponent<StateManager>();
         click = GameObject.Find("GameManager").GetComponent<LocateMouse>();
+        tVal = GameObject.Find("GameManager").GetComponent<TileValues>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //if (this.tileType == TileValues.TileType.house)
+        //{
+        //    Debug.Log(this.name);
+        //    Debug.Log(this.tileType);
+        //}
 
         if (Input.GetMouseButton(0))
         {
@@ -39,7 +48,24 @@ public class SpawnDraggable : MonoBehaviour
             // is instantiated, has its name changed and spawn will now be false.
             if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Draggable")) && state.GetSpawn())
             {
-                temp = Instantiate(spawnObj);
+                if (hit.collider.name == "RoadSpawner")
+                {
+                    temp = Instantiate(tVal.GetRoad());
+                }
+                if (hit.collider.name == "HouseSpawner")
+                {
+                    temp = Instantiate(tVal.GetHouse());
+                }
+                if (hit.collider.name == "WetSpawner")
+                {
+                    temp = Instantiate(tVal.GetWet());
+                }
+                if (hit.collider.name == "BioSpawner")
+                {
+                    temp = Instantiate(tVal.GetBio());
+                }
+
+                //temp = Instantiate(this.spawnObj);
                 temp.name = temp.name + num;
                 state.SetSpawn(false);
                 num++;
