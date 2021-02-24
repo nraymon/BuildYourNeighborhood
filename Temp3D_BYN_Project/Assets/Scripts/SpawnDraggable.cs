@@ -7,6 +7,7 @@ public class SpawnDraggable : MonoBehaviour
 {
 
     public GameObject spawnObj;
+    public GameObject gridObj;
     GameObject temp;
 
     public TileValues.TileType tileType;
@@ -18,6 +19,8 @@ public class SpawnDraggable : MonoBehaviour
     LocateMouse click;
 
     StateManager state;
+
+    public bool ephemeral;
 
     Ray mouseRay;
 
@@ -48,21 +51,47 @@ public class SpawnDraggable : MonoBehaviour
             // is instantiated, has its name changed and spawn will now be false.
             if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Draggable")) && state.GetSpawn())
             {
-                if (hit.collider.name == "RoadSpawner")
+
+                if (hit.collider.name == "RoadSpawner" || hit.collider.name.Substring(0, 4) == "Road")
                 {
                     temp = Instantiate(tVal.GetRoad());
+
+                    if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
+                    {
+                        hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
+                        StartCoroutine(hold(hit));
+                    }
                 }
-                if (hit.collider.name == "HouseSpawner")
+                if (hit.collider.name == "HouseSpawner" || hit.collider.name.Substring(0, 5) == "House")
                 {
                     temp = Instantiate(tVal.GetHouse());
+
+                    if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
+                    {
+                        hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
+                        StartCoroutine(hold(hit));
+                    }
                 }
-                if (hit.collider.name == "WetSpawner")
+                if (hit.collider.name == "WetSpawner" || hit.collider.name.Substring(0, 7) == "Wetland")
                 {
+                    
                     temp = Instantiate(tVal.GetWet());
+
+                    if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
+                    {
+                        hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
+                        StartCoroutine(hold(hit));
+                    }
                 }
-                if (hit.collider.name == "BioSpawner")
+                if (hit.collider.name == "BioSpawner" || hit.collider.name.Substring(0, 8) == "Bioswale")
                 {
                     temp = Instantiate(tVal.GetBio());
+
+                    if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
+                    {
+                        hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
+                        StartCoroutine(hold(hit));
+                    }
                 }
 
                 //temp = Instantiate(this.spawnObj);
@@ -81,5 +110,16 @@ public class SpawnDraggable : MonoBehaviour
         }
 
             
+    }
+
+    IEnumerator hold(RaycastHit hit)
+    {
+        yield return new WaitForSecondsRealtime(.01f);
+        Destroy(hit.collider.gameObject);
+    }
+
+    public void setGridObj(GameObject gridObj)
+    {
+        this.gridObj = gridObj;
     }
 }

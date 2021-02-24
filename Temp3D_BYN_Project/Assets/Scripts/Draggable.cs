@@ -33,6 +33,8 @@ public class Draggable : MonoBehaviour
 
     TileValues tileValues;
 
+    PointerEventData eventData;
+
     // State, click and color all need to be initialized with getComponent for unity to be pleased
     private void Start()
     {
@@ -136,6 +138,10 @@ public class Draggable : MonoBehaviour
             obj.transform.position += new Vector3(0, .5f, 0);
             obj.layer = 0;
             Destroy(GetComponent<Draggable>());
+            this.gameObject.AddComponent<SpawnDraggable>();
+            this.gameObject.layer = 8;
+            this.gameObject.GetComponent<SpawnDraggable>().ephemeral = true;
+            this.gameObject.GetComponent<SpawnDraggable>().setGridObj(gridObj);
             state.SetSpawn(true);
             gridObj = null;
 
@@ -144,6 +150,13 @@ public class Draggable : MonoBehaviour
 
             //TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
             //tileValues.PrintValues();
+        }
+
+        if (Input.GetMouseButtonUp(0) && obj && state.GetTrash())
+        {
+            //Debug.Log("ayyy");
+            Destroy(obj);
+            state.SetSpawn(true);
         }
 
         // If the mouse button is let go and we only have the draggable object,

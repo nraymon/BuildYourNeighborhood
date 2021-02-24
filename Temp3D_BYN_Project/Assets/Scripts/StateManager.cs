@@ -10,6 +10,8 @@ public class StateManager : MonoBehaviour
 
     bool spawn = true;
 
+    bool trash = false;
+
     // This stack will keep track of the moves that have been made
     Stack<MoveProperties> moves = new Stack<MoveProperties>();
     // move will be used when the player wishes to undo their move; it will become the move popped off the stack
@@ -71,5 +73,15 @@ public class StateManager : MonoBehaviour
     public void SetSpawn(bool x)
     {
         spawn = x;
+    }
+
+    public bool GetTrash()
+    {
+        return trash;
+    }
+
+    public void SetTrash(bool x)
+    {
+        trash = x;
     }
 }
