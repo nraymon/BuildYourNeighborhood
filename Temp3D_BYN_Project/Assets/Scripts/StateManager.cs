@@ -56,13 +56,23 @@ public class StateManager : MonoBehaviour
         gridPositions[col, row] = score;
     }
 
-    public void Undo()
+    //public void Undo()
+    //{
+    //    move = moves.Pop();
+    //    move.UndoMove();
+    //    Debug.Log(move.objPos);
+    //    Debug.Log(move.replacementObj.name);
+    //    Debug.Log(move.gameObj.name);
+    //}
+
+    public void Undo(string placement)
     {
-        move = moves.Pop();
-        move.UndoMove();
-        Debug.Log(move.objPos);
-        Debug.Log(move.replacementObj.name);
-        Debug.Log(move.gameObj.name);
+        int col = (int)Char.GetNumericValue(placement[0]);
+        int row = (int)Char.GetNumericValue(placement[2]);
+
+        gridPositions[col, row] = 0f;
+
+        Debug.Log("gone");
     }
 
     public bool GetSpawn()

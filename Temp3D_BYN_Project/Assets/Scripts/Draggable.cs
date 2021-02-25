@@ -154,7 +154,7 @@ public class Draggable : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && obj && state.GetTrash())
         {
-            //Debug.Log("ayyy");
+            //state.Delete(obj.GetComponent<Draggable>().gridObj.name);
             Destroy(obj);
             state.SetSpawn(true);
         }

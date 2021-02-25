@@ -27,7 +27,7 @@ public class UiController : MonoBehaviour
 
         PlaceHouseBtn.onClick.AddListener(() =>
         {
-            state.Undo();
+            //state.Undo();
             OnHousePlacement?.Invoke();
         });
     }
