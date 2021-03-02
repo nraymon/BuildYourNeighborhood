@@ -101,7 +101,7 @@ public class Draggable : MonoBehaviour
             {
                 this.transform.position = mRay.GetPoint(rayDist);
                 var pos = this.transform.position;
-                pos.y = Mathf.Clamp(this.transform.position.y, 1.2f, 5f);
+                pos.y = Mathf.Clamp(this.transform.position.y, 0f, 5f);
                 this.transform.position = pos;
             }
         }

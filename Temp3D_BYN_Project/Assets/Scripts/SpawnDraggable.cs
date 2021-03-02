@@ -82,7 +82,6 @@ public class SpawnDraggable : MonoBehaviour
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
                         state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
-                        //temp.GetComponent<Draggable>().gridObj = hit.collider.GetComponent<SpawnDraggable>().gridObj;
                         hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
                         StartCoroutine(hold(hit));
                     }
