@@ -23,6 +23,7 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        //WIP spawn tiles from UI
         if (this.gameObject.GetComponent<UISpawn>().tileType == TileValues.TileType.wetlands)
         {
             //this.gameObject.SetActive(false);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjColorShading : MonoBehaviour
 {
+    // takes in rgba values and sets them to an object.
     public Color32 ChangeObjShading(GameObject obj, int r, int g, int b, int a)
     {
         Color32 col = obj.GetComponent<Renderer>().material.GetColor("_Color");

@@ -32,21 +32,25 @@ public class TileValues : MonoBehaviour
 
     }
 
+    // returns the road game object
     public GameObject GetRoad()
     {
         return RoadSpawn;
     }
 
+    // returns the house game object
     public GameObject GetHouse()
     {
         return HouSpawn;
     }
 
+    // returns the wetland game object
     public GameObject GetWet()
     {
         return WetSpawn;
     }
 
+    // returns the bioswale game object
     public GameObject GetBio()
     {
         return BioSpawn;

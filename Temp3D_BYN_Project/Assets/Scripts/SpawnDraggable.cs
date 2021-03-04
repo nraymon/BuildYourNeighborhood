@@ -20,6 +20,7 @@ public class SpawnDraggable : MonoBehaviour
 
     StateManager state;
 
+    // eph == true: tile can be grabbed from grid. eph == false: permanent spawner
     public bool ephemeral;
 
     Ray mouseRay;

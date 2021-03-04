@@ -19,6 +19,7 @@ public class StateManager : MonoBehaviour
 
     public float[,] gridPositions;
 
+    //initializes array that keeps track of what tile is in a grid spot
     void Start()
     {
         gridPositions = new float[5, 5] { { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f } };
@@ -27,6 +28,7 @@ public class StateManager : MonoBehaviour
 
     private void Update()
     {
+        // prints score of each row and prints it out currently
         if (Input.GetKeyDown(KeyCode.F))
         {
             float sum = 0;
@@ -65,6 +67,7 @@ public class StateManager : MonoBehaviour
     //    Debug.Log(move.gameObj.name);
     //}
 
+    // gets current row and column of recently picked up tile and sets it to 0 (score)
     public void Undo(string placement)
     {
         int col = (int)Char.GetNumericValue(placement[0]);
