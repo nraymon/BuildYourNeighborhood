@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveProperties : MonoBehaviour
 {
 
+
     // This will be the game object being placed
     public GameObject gameObj;
     // This is the object the placed tile will be replaced with
