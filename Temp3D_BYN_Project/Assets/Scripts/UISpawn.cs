@@ -25,25 +25,52 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
     {
         if (this.gameObject.GetComponent<UISpawn>().tileType == TileValues.TileType.wetlands)
         {
-            //this.gameObject.SetActive(false);
-            Vector3 pos = new Vector3(-4.42f, 0.25f, -6.41f); //Camera.main.ScreenToWorldPoint(Input.mousePosition); //new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
+            //Vector3 mousePosFar = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.farClipPlane);
+           // Vector3 mousePosNear = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane);
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Debug.Log(pos);
-            temp = Instantiate(tVal.GetWet(), pos, Quaternion.identity);
+            pos.x += 5f;
+            pos.y -= 2.5f;
+            pos.z += 5f;
+            Quaternion rot = Quaternion.identity;
+            rot.z -= 1;
+            temp = Instantiate(tVal.GetWet(), pos, rot);
         }
 
         if (this.gameObject.GetComponent<UISpawn>().tileType == TileValues.TileType.bioswale)
         {
-            temp = Instantiate(tVal.GetBio());
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Debug.Log(pos);
+            pos.x += 5f;
+            pos.y -= 2.5f;
+            pos.z += 5f;
+            Quaternion rot = Quaternion.identity;
+            rot.z -= 1;
+            temp = Instantiate(tVal.GetBio(), pos, rot);
         }
 
         if (this.gameObject.GetComponent<UISpawn>().tileType == TileValues.TileType.house)
         {
-            temp = Instantiate(tVal.GetHouse());
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Debug.Log(pos);
+            pos.x += 5f;
+            pos.y -= 2.5f;
+            pos.z += 5f;
+            Quaternion rot = Quaternion.identity;
+            rot.z -= 1;
+            temp = Instantiate(tVal.GetHouse(), pos, rot);
         }
 
         if (this.gameObject.GetComponent<UISpawn>().tileType == TileValues.TileType.road)
         {
-            temp = Instantiate(tVal.GetRoad());
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Debug.Log(pos);
+            pos.x += 5.2f;
+            pos.y -= 2.8f;
+            pos.z += 5f;
+            Quaternion rot = Quaternion.identity;
+            rot.z -= 1;
+            temp = Instantiate(tVal.GetRoad(), pos, rot);
         }
 
         temp.name = temp.name + num;

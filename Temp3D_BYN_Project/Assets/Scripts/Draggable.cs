@@ -163,8 +163,11 @@ public class Draggable : MonoBehaviour
         // then object stays where it was placed and returns to its original color.
         if (Input.GetMouseButtonUp(0) && obj)
         {
-            this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
-            obj = null;
+
+            Destroy(obj);
+            state.SetSpawn(true);
+            //this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
+            //obj = null;
         }
     }
 }

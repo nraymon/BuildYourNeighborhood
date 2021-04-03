@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 194092167}
   - component: {fileID: 194092169}
   - component: {fileID: 194092168}
+  - component: {fileID: 194092170}
   m_Layer: 5
   m_Name: Progress Bar 2
   m_TagString: Untagged
@@ -696,6 +697,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194092166}
   m_CullTransparentMesh: 0
+--- !u!114 &194092170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194092166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86728383adeefd148b37f2782d1f13a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 577344466}
+  perc: {fileID: 1549671199}
 --- !u!1 &306300973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2948,6 +2963,7 @@ GameObject:
   - component: {fileID: 769776011}
   - component: {fileID: 769776013}
   - component: {fileID: 769776012}
+  - component: {fileID: 769776014}
   m_Layer: 5
   m_Name: Progress Bar 3
   m_TagString: Untagged
@@ -3015,6 +3031,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769776010}
   m_CullTransparentMesh: 0
+--- !u!114 &769776014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769776010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52ec30ede06bfa419065287f4b96ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 1999390550}
+  perc: {fileID: 445030159}
 --- !u!1 &894842233
 GameObject:
   m_ObjectHideFlags: 0
@@ -7501,6 +7531,7 @@ GameObject:
   - component: {fileID: 2061776798}
   - component: {fileID: 2061776800}
   - component: {fileID: 2061776799}
+  - component: {fileID: 2061776801}
   m_Layer: 5
   m_Name: Progress Bar 1
   m_TagString: Untagged
@@ -7568,6 +7599,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061776797}
   m_CullTransparentMesh: 0
+--- !u!114 &2061776801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061776797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65772b700ee36848a3a5a0acf5f89da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 1156985955}
+  perc: {fileID: 1070696546}
 --- !u!1 &2064249670
 GameObject:
   m_ObjectHideFlags: 0
