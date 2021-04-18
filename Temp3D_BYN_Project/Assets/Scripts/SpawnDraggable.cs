@@ -58,6 +58,7 @@ public class SpawnDraggable : MonoBehaviour
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
+                        state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
                         state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
                         hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
                         StartCoroutine(hold(hit));
@@ -69,6 +70,7 @@ public class SpawnDraggable : MonoBehaviour
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
+                        state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
                         state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
                         hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
                         StartCoroutine(hold(hit));
@@ -76,11 +78,12 @@ public class SpawnDraggable : MonoBehaviour
                 }
                 if (hit.collider.name == "WetSpawner" || hit.collider.name.Substring(0, 7) == "Wetland")
                 {
-                    
+
                     temp = Instantiate(tVal.GetWet());
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
+                        state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
                         state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
                         hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
                         StartCoroutine(hold(hit));
@@ -92,6 +95,7 @@ public class SpawnDraggable : MonoBehaviour
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
+                        state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
                         state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
                         hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
                         StartCoroutine(hold(hit));
@@ -113,7 +117,7 @@ public class SpawnDraggable : MonoBehaviour
             }
         }
 
-            
+
     }
 
     IEnumerator hold(RaycastHit hit)

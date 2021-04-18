@@ -3458,13 +3458,13 @@ MonoBehaviour:
   type: 1
   beauty: 0
   temperature: 0
-  RoadSpawn: {fileID: 298476011676323660, guid: 7cd9e48d9c54a5f4a83a59f9b4dfe150,
+  RoadSpawn: {fileID: 7170052123964468589, guid: 9d28f9190bfca764f872d4c93f1d716c,
     type: 3}
-  BioSpawn: {fileID: 7906601010209165379, guid: 745cde1e8aee9d94d87617e7679510ed,
+  BioSpawn: {fileID: 1734118849753842467, guid: dd8439ef72d41654b893cc0fec8b3f9e,
     type: 3}
-  WetSpawn: {fileID: 1528726856428165968, guid: c80d6fce5372aba44b38b17f2c64f773,
+  WetSpawn: {fileID: 2153248234307525903, guid: 46831e43e3c3fcc4f855c8b795bea060,
     type: 3}
-  HouSpawn: {fileID: 7888623887820398559, guid: dc6420a55c487874da664df902055d6e,
+  HouSpawn: {fileID: 3474002795825597246, guid: 07f945cbc484d06419b3425d3b9656cd,
     type: 3}
 --- !u!1 &963194225
 GameObject:

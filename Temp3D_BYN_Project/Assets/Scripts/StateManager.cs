@@ -13,7 +13,9 @@ public class StateManager : MonoBehaviour
     bool trash = false;
 
     // This stack will keep track of the moves that have been made
-    Stack<MoveProperties> moves = new Stack<MoveProperties>();
+    Hashtable snapBack = new Hashtable();
+
+    Stack<GameObject> back = new Stack<GameObject>();
     // move will be used when the player wishes to undo their move; it will become the move popped off the stack
     MoveProperties move;
 
@@ -41,19 +43,43 @@ public class StateManager : MonoBehaviour
                 Debug.Log("Row " + i + " contains " + sum + " points.");
                 sum = 0;
             }
+
+            foreach (DictionaryEntry d in snapBack)
+                Debug.Log("Key: " + d.Key.ToString() + ", Value: " + d.Value.ToString());
         }
     }
 
     // allows for adding an element to a data structure without changed other code
     public void AddElement(MoveProperties move, string placement, float score)
     {
-        moves.Push(move);
+        //moves.Push(move);
         int col = (int)Char.GetNumericValue(placement[0]);
         int row = (int)Char.GetNumericValue(placement[2]);
 
         Debug.Log("Temp: " + score + "\n" + "col: " + col + "\n" + "row: " + row + "\n");
 
         gridPositions[col, row] = score;
+    }
+
+    public void snap(string gridSpot)
+    {
+        snapBack.Add(gridSpot, gridSpot);
+    }
+
+    public void addThing(GameObject gridSpot)
+    {
+        back.Push(gridSpot);
+        Debug.Log("LMAOOOOOO: " + gridSpot.name);
+    }
+
+    public GameObject backThing()
+    {
+        return back.Pop();
+    }
+
+    public bool test()
+    {
+        return back.Count == 0;
     }
 
     //public void Undo()

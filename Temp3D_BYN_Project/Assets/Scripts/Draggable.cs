@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour
-{ 
+{
 
     // Will become the draggable layer object
     GameObject obj;
@@ -49,7 +49,7 @@ public class Draggable : MonoBehaviour
 
     private void Update()
     {
-        
+
 
         if (Input.GetMouseButton(0))
         {
@@ -86,7 +86,7 @@ public class Draggable : MonoBehaviour
                 this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 100, 0, 0, 100));
             }
 
-        } 
+        }
 
         // If left click is being held and the player is dragging an object,
         // plane will have a ray cast to it in order for the drag to look
@@ -130,12 +130,30 @@ public class Draggable : MonoBehaviour
             move.replacementObj = gridObj;
             state.AddElement(move, gridObj.name, tileValues.temperature);
 
+            //state.snap(gridObj.name);
+
             // no more destroying the gridObj, this allows for undoing a move
             gridObj.SetActive(false);
 
             // abstract this block in a function?
             obj.transform.position = gridObj.transform.position;
+            Debug.Log(obj.transform.position);
             obj.transform.position += new Vector3(0, .5f, 0);
+
+            if (obj.name.Substring(0, 7) == "Wetland")
+            {
+                obj.transform.position += new Vector3(-.2f, .2f, 0);
+            }
+            else if (obj.name.Substring(0, 8) == "Bioswale")
+            {
+                obj.transform.position += new Vector3(0, -.02f, 0);
+            }
+            else if (obj.name.Substring(0, 5) == "House" || obj.name.Substring(0, 4) == "Road")
+            {
+                obj.transform.position += new Vector3(0, -.52f, 0);
+            }
+
+            Debug.Log(obj.transform.position);
             obj.layer = 0;
             Destroy(GetComponent<Draggable>());
             this.gameObject.AddComponent<SpawnDraggable>();
@@ -163,9 +181,59 @@ public class Draggable : MonoBehaviour
         // then object stays where it was placed and returns to its original color.
         if (Input.GetMouseButtonUp(0) && obj)
         {
+            if (!state.test())
+            {
+                tileValues.PrintValues();
 
-            Destroy(obj);
-            state.SetSpawn(true);
+                // setting up the move element to be placed on the moves Stack in StateManager
+                move.gameObj = obj;
+                move.objPos = obj.transform;
+                gridObj = state.backThing();
+                Debug.Log(gridObj.name);
+                move.replacementObj = gridObj;
+                state.AddElement(move, gridObj.name, tileValues.temperature);
+
+                //state.snap(gridObj.name);
+
+                // no more destroying the gridObj, this allows for undoing a move
+                gridObj.SetActive(false);
+
+                // abstract this block in a function?
+                obj.transform.position = gridObj.transform.position;
+                Debug.Log(obj.transform.position);
+                obj.transform.position += new Vector3(0, .5f, 0);
+
+                if (obj.name.Substring(0, 7) == "Wetland")
+                {
+                    obj.transform.position += new Vector3(-.2f, .2f, 0);
+                }
+                else if (obj.name.Substring(0, 8) == "Bioswale")
+                {
+                    obj.transform.position += new Vector3(0, -.02f, 0);
+                }
+                else if (obj.name.Substring(0, 5) == "House" || obj.name.Substring(0, 4) == "Road")
+                {
+                    obj.transform.position += new Vector3(0, -.52f, 0);
+                }
+
+                Debug.Log(obj.transform.position);
+                obj.layer = 0;
+                Destroy(GetComponent<Draggable>());
+                this.gameObject.AddComponent<SpawnDraggable>();
+                this.gameObject.layer = 8;
+                this.gameObject.GetComponent<SpawnDraggable>().ephemeral = true;
+                this.gameObject.GetComponent<SpawnDraggable>().setGridObj(gridObj);
+                state.SetSpawn(true);
+                gridObj = null;
+
+                this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
+                obj = null;
+            }
+            else
+            {
+                Destroy(obj);
+                state.SetSpawn(true);
+            }
             //this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
             //obj = null;
         }
