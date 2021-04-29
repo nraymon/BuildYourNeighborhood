@@ -58,7 +58,7 @@ public class GridGenerator : MonoBehaviour
 
                 newTile.localScale = Vector3.one * (1 - outlinePercent);
                 newTile.parent = mapHolder;
-                newTile.name = x.ToString() + " " + y.ToString();
+                newTile.name = "Quad " + x.ToString() + ", " + y.ToString();
             }
         }
     }
