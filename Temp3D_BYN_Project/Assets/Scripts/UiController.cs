@@ -25,11 +25,11 @@ public class UiController : MonoBehaviour
 
         buttonList = new List<Button> { PlaceHouseBtn };
 
-        PlaceHouseBtn.onClick.AddListener(() =>
-        {
-            state.Undo();
-            OnHousePlacement?.Invoke();
-        });
+        //PlaceHouseBtn.onClick.AddListener(() =>
+        //{
+        //    //state.Undo();
+        //    OnHousePlacement?.Invoke();
+        //});
     }
 
     private void ModifyOutline(Button button)
