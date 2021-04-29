@@ -166,6 +166,8 @@ public class Draggable : MonoBehaviour
             this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
             obj = null;
 
+            //state.rotTrue();
+
             //TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
             //tileValues.PrintValues();
         }
@@ -175,6 +177,7 @@ public class Draggable : MonoBehaviour
             //state.Delete(obj.GetComponent<Draggable>().gridObj.name);
             Destroy(obj);
             state.SetSpawn(true);
+            //state.rotTrue();
         }
 
         // If the mouse button is let go and we only have the draggable object,
@@ -228,11 +231,13 @@ public class Draggable : MonoBehaviour
 
                 this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
                 obj = null;
+                //state.rotTrue();
             }
             else
             {
                 Destroy(obj);
                 state.SetSpawn(true);
+                //state.rotTrue();
             }
             //this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
             //obj = null;

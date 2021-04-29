@@ -12,6 +12,10 @@ public class StateManager : MonoBehaviour
 
     bool trash = false;
 
+    bool rotate = true;
+
+    bool exitUI = true;
+
     // This stack will keep track of the moves that have been made
     Hashtable snapBack = new Hashtable();
 
@@ -90,6 +94,36 @@ public class StateManager : MonoBehaviour
     //    Debug.Log(move.replacementObj.name);
     //    Debug.Log(move.gameObj.name);
     //}
+
+    public void rotTrue()
+    {
+        rotate = true;
+    }
+
+    public void rotFalse()
+    {
+        rotate = false;
+    }
+
+    public void exit()
+    {
+        exitUI = true; 
+    }
+
+    public void exitFalse()
+    {
+        exitUI = false;
+    }
+
+    public bool getExit()
+    {
+        return exitUI;
+    }
+
+    public bool getRot()
+    {
+        return rotate;
+    }
 
     public void Undo(string placement)
     {

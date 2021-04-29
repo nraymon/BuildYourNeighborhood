@@ -12,30 +12,40 @@ public class CameraMovement : MonoBehaviour
 
     private Vector3 previousPosition;
 
+    StateManager state;
+
+    private void Start()
+    {
+        state = GameObject.Find("GameManager").GetComponent<StateManager>();
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if( Input.GetMouseButtonDown(0)){
-          // true only in the 1st frame in which it detects a tap
-          previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            // true only in the 1st frame in which it detects a tap
+            previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
-        else if(Input.GetMouseButton(0)){
-          //true as long as touch is happening
-          Vector3 newPosition = cam.ScreenToViewportPoint(Input.mousePosition);
-          Vector3 direction = previousPosition - newPosition;
+        else if (Input.GetMouseButton(1))
+        {
+            //true as long as touch is happening
+            Vector3 newPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+            Vector3 direction = previousPosition - newPosition;
 
-          float rotationAroundYAxis = -direction.x * maxRotationInOneSwipe;
-          float rotationAroundXAxis = direction.y * maxRotationInOneSwipe;
+            float rotationAroundYAxis = -direction.x * maxRotationInOneSwipe;
+            float rotationAroundXAxis = direction.y * maxRotationInOneSwipe;
 
-          cam.transform.position = target.position;
+            cam.transform.position = target.position;
 
-          cam.transform.Rotate(new Vector3(1, 0, 0), rotationAroundXAxis);
-          cam.transform.Rotate(new Vector3(0, 1, 0), rotationAroundYAxis, Space.World);
+            cam.transform.Rotate(new Vector3(1, 0, 0), rotationAroundXAxis);
+            cam.transform.Rotate(new Vector3(0, 1, 0), rotationAroundYAxis, Space.World);
 
-          cam.transform.Translate(new Vector3(0, 0, -distanceToTarget));
+            cam.transform.Translate(new Vector3(0, 0, -distanceToTarget));
 
-          previousPosition = newPosition;
+            previousPosition = newPosition;
         }
     }
 }
