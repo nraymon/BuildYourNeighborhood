@@ -128,7 +128,8 @@ public class Draggable : MonoBehaviour
             move.gameObj = obj;
             move.objPos = obj.transform;
             move.replacementObj = gridObj;
-            state.AddElement(move, gridObj.name, tileValues.temperature);
+            // pass the current tile values (tileValues) into StateManager to calculate score
+            state.AddElement(move, gridObj.name, tileValues);
 
             //state.snap(gridObj.name);
 
@@ -191,7 +192,7 @@ public class Draggable : MonoBehaviour
                 gridObj = state.backThing();
                 Debug.Log(gridObj.name);
                 move.replacementObj = gridObj;
-                state.AddElement(move, gridObj.name, tileValues.temperature);
+                state.AddElement(move, gridObj.name, tileValues);
 
                 //state.snap(gridObj.name);
 

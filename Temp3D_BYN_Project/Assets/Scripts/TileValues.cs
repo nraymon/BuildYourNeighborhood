@@ -17,7 +17,7 @@ public class TileValues : MonoBehaviour
     //enum to allow tiles to distinguish their tile type
     public enum TileType
     {
-        road, house, bioswale, wetlands
+        road, house, bioswale, wetlands, none
     }
 
     // Start is called before the first frame update
@@ -85,6 +85,12 @@ public class TileValues : MonoBehaviour
                 beauty = 3f;
                 temperature = 0.5f;
                 break;
+            case TileType.none:
+                name = "None " + num;
+                type = TileType.none;
+                beauty = 0f;
+                temperature = 0f;
+                break;
             default:
                 break;
         }
@@ -94,6 +100,7 @@ public class TileValues : MonoBehaviour
 
 
     }
+
 
 
     public void PrintValues()

@@ -20,10 +20,29 @@ public class StateManager : MonoBehaviour
     MoveProperties move;
 
     public float[,] gridPositions;
+    public TileValues[,] gridTiles;
+
+    public Scoring scoreCalculator;
+
+    public 
 
     void Start()
     {
         gridPositions = new float[5, 5] { { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f } };
+        
+        // initiate grid with empty tile values
+        gridTiles = new TileValues[5, 5];
+        TileValues noneTileValues = new TileValues();
+        noneTileValues.AssignValues(0, TileValues.TileType.none);
+        for (int i=0; i<5; i++)
+        {
+            for (int j=0; j<5; j++)
+            {
+                gridTiles[j, i] = noneTileValues;
+            }
+        }
+        // scoring class used for calculating score and block interaction
+        scoreCalculator = new Scoring();
     }
 
 
@@ -31,18 +50,7 @@ public class StateManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            float sum = 0;
-            for (int i = 0; i < 5; i++)
-            {
-                int j;
-                for (j = 0; j < 5; j++)
-                {
-                    sum += gridPositions[j, i];
-                }
-
-                Debug.Log("Row " + i + " contains " + sum + " points.");
-                sum = 0;
-            }
+            CalcScore(gridTiles);
 
             foreach (DictionaryEntry d in snapBack)
                 Debug.Log("Key: " + d.Key.ToString() + ", Value: " + d.Value.ToString());
@@ -50,15 +58,22 @@ public class StateManager : MonoBehaviour
     }
 
     // allows for adding an element to a data structure without changed other code
-    public void AddElement(MoveProperties move, string placement, float score)
+    public void AddElement(MoveProperties move, string placement, TileValues tileValues)
     {
+        Debug.Log("AddElement TileValues: ");
+        tileValues.PrintValues();
         //moves.Push(move);
         int col = (int)Char.GetNumericValue(placement[0]);
         int row = (int)Char.GetNumericValue(placement[2]);
 
+        float score = tileValues.beauty;
+
         Debug.Log("Temp: " + score + "\n" + "col: " + col + "\n" + "row: " + row + "\n");
 
         gridPositions[col, row] = score;
+
+        // store current tile's values in its corresponding location on the grid 
+        gridTiles[col, row] = tileValues;
     }
 
     public void snap(string gridSpot)
@@ -98,6 +113,10 @@ public class StateManager : MonoBehaviour
 
         gridPositions[col, row] = 0f;
 
+        TileValues tileValues = new TileValues();
+        tileValues.AssignValues(0, TileValues.TileType.none);
+        gridTiles[col, row] = tileValues;
+
         Debug.Log("gone");
     }
 
@@ -119,5 +138,29 @@ public class StateManager : MonoBehaviour
     public void SetTrash(bool x)
     {
         trash = x;
+    }
+
+
+    public void CalcScore(TileValues[,] gridTiles)
+    {
+        scoreCalculator.GetScore(gridTiles);
+
+        
+        /*for (int i=0; i<5; i++)
+        {
+            for (int j=0; j<5; j++)
+            {
+                // if there's no tile in the current grid location, skip it
+                if (gridTiles[j,i] == null)
+                {
+                    Debug.Log(j + "," + i + ": null");
+                }
+                else
+                {
+                    // if the tile is on the edge 
+                    Debug.Log(j + "," + i + ": " + gridTiles[j, i].beauty);
+                }
+            }
+        }*/
     }
 }
