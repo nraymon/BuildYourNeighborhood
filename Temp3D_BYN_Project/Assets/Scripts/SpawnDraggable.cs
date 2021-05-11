@@ -113,7 +113,7 @@ public class SpawnDraggable : MonoBehaviour
                 //tileValues.beauty = 1.5f;
                 //tileValues.temperature = 2.0f;
 
-                tileValues.AssignValues(num, tileType);
+                /*tileValues.AssignValues(num, tileType);*/ // this line seems to cause tiles to default to "road" upon SnapBack
             }
         }
 

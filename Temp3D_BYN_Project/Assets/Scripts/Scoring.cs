@@ -6,7 +6,7 @@ public class Scoring
 {
 
     // calculate score between two blocks 
-    public void GetScore(TileValues[,] gridTiles)
+    public Scoreholder GetScore(TileValues[,] gridTiles)
     {
         Scoreholder totalScores = new Scoreholder();    // stores total score 
         Scoreholder scoreholder = new Scoreholder();    // stores current tile interaction's score and description
@@ -19,26 +19,26 @@ public class Scoring
                 if (i == 4 && j == 4)
                 {
                     // skip tile- already been calculated
-                    Debug.Log("corner" + i + "," + j);
+                    //Debug.Log("corner" + i + "," + j);
                 }
                 // tile is at edge- only perform calculation with block +1 j over, not +1 i
                 else if (i == 4)
                 {
                     // get flood score with tile next to it (+1 j)
-                    Debug.Log("i edge" + i + "," + j);
+                    //Debug.Log("i edge" + i + "," + j);
                     scoreholder = GetInteractions(gridTiles[i, j], gridTiles[i, j + 1]);
                 }
                 // tile is at edge- only perform calculation with block +1 i over, not +1 j
                 else if (j == 4)
                 {
                     // get flood score with block below it (+1 i)
-                    Debug.Log("j edge." + i + "," + j);
+                    //Debug.Log("j edge." + i + "," + j);
                     scoreholder = GetInteractions(gridTiles[i, j], gridTiles[i+1, j]);
                 }
-                // current tile should have a tile below and next to it 
+                // current tile should have a tile below and ndeext to it 
                 else
                 {
-                    Debug.Log("non-edge" + i + "," + j);
+                    //Debug.Log("non-edge" + i + "," + j);
                     //get flood score with block next to it (+1 j)
                     scoreholder = GetInteractions(gridTiles[i, j], gridTiles[i, j+1]);
                     //get flood score with block below it (+1 i)
@@ -50,12 +50,12 @@ public class Scoring
                 totalScores.qualLifePts += scoreholder.qualLifePts;
             }
         }
-
+        return totalScores;
     }
 
     public Scoreholder GetInteractions(TileValues tileOne, TileValues tileTwo)
     {
-        /*Debug.Log("Interaction: " + tileOne.type + ", " + tileTwo.type);*/
+        Debug.Log("Interaction: " + tileOne.type + ", " + tileTwo.type);
         Scoreholder scoreholder = new Scoreholder();
         
         switch(tileOne.type)
@@ -65,36 +65,36 @@ public class Scoring
                 switch (tileTwo.type)
                 {
                     case TileValues.TileType.road:
-                        scoreholder.pedSafetyPts = 0f;
-                        scoreholder.floodPts = 0f;
-                        scoreholder.qualLifePts = 0f;
-                        scoreholder.pedSafetyDesc = "missing";
-                        scoreholder.floodDesc = "missing";
-                        scoreholder.qualLifeDesc = "missing";
+                        scoreholder.pedSafetyPts = 10f;
+                        scoreholder.floodPts = 5f;
+                        scoreholder.qualLifePts = 20f;
+                        scoreholder.pedSafetyDesc = "Access to transportation";
+                        scoreholder.floodDesc = "Drainage";
+                        scoreholder.qualLifeDesc = "Access and parking";
                         break;
                     case TileValues.TileType.wetlands:
-                        scoreholder.pedSafetyPts = 0f;
-                        scoreholder.floodPts = 0f;
-                        scoreholder.qualLifePts = 0f;
-                        scoreholder.pedSafetyDesc = "missing";
-                        scoreholder.floodDesc = "missing";
-                        scoreholder.qualLifeDesc = "missing";
+                        scoreholder.pedSafetyPts = -10f;
+                        scoreholder.floodPts = 20f;
+                        scoreholder.qualLifePts = 20f;
+                        scoreholder.pedSafetyDesc = "Alter/ disturb wildlife habitat: Impede animal, migration, and disperse nonnative pest species of plants and animals.";
+                        scoreholder.floodDesc = "Flood storage: Shoreline erosion control.";
+                        scoreholder.qualLifeDesc = "Economically beneficial natural products for human use: Provide opportunities for recreation, education, and research.";
                         break;
                     case TileValues.TileType.bioswale:
-                        scoreholder.pedSafetyPts = 0f;
-                        scoreholder.floodPts = 0f;
-                        scoreholder.qualLifePts = 0f;
-                        scoreholder.pedSafetyDesc = "missing";
-                        scoreholder.floodDesc = "missing";
-                        scoreholder.qualLifeDesc = "missing";
+                        scoreholder.pedSafetyPts = -5f;
+                        scoreholder.floodPts = 20f;
+                        scoreholder.qualLifePts = -5f;
+                        scoreholder.pedSafetyDesc = "Safety: People might injure themselves by falling into them because the plants obscured the sinkholes.";
+                        scoreholder.floodDesc = "Hazard mitigation: Absorb then redirect runoff to the stormwater management system.Hence, reduces the overall flow rate.";
+                        scoreholder.qualLifeDesc = "Parking: The design can make pavement wider and streets narrower and hence impact the flow of traffic and reduce the parking spaces";
                         break;
                     case TileValues.TileType.house:
-                        scoreholder.pedSafetyPts = 0f;
-                        scoreholder.floodPts = 0f;
+                        scoreholder.pedSafetyPts = 30f;
+                        scoreholder.floodPts = -20f;
                         scoreholder.qualLifePts = 0f;
-                        scoreholder.pedSafetyDesc = "missing";
-                        scoreholder.floodDesc = "missing";
-                        scoreholder.qualLifeDesc = "missing";
+                        scoreholder.pedSafetyDesc = "Safe grounds: security, public safety (neighborhood watch program)";
+                        scoreholder.floodDesc = "Flooded roads: Hinder commutes and access.";
+                        scoreholder.qualLifeDesc = "Damaging effects of road construction and management: Noise, dust, traffic congestion, and vibration.";
                         break;
                     case TileValues.TileType.none:
                         //skip empty tile
@@ -106,12 +106,12 @@ public class Scoring
                 switch (tileTwo.type)
                 {
                     case TileValues.TileType.road:
-                        scoreholder.pedSafetyPts = 0f;
-                        scoreholder.floodPts = 0f;
-                        scoreholder.qualLifePts = 0f;
-                        scoreholder.pedSafetyDesc = "missing";
-                        scoreholder.floodDesc = "missing";
-                        scoreholder.qualLifeDesc = "missing";
+                        scoreholder.pedSafetyPts = -10f;
+                        scoreholder.floodPts = 20f;
+                        scoreholder.qualLifePts = 20f;
+                        scoreholder.pedSafetyDesc = "Alter/ disturb wildlife habitat: Impede animal, migration, and disperse nonnative pest species of plants and animals.";
+                        scoreholder.floodDesc = "Flood storage: Shoreline erosion control.";
+                        scoreholder.qualLifeDesc = "Economically beneficial natural products for human use: Provide opportunities for recreation, education, and research.";
                         break;
                     case TileValues.TileType.wetlands:
                         scoreholder.pedSafetyPts = -10f;
@@ -147,12 +147,12 @@ public class Scoring
                 switch (tileTwo.type)
                 {
                     case TileValues.TileType.road:
-                        scoreholder.pedSafetyPts = 0f;
-                        scoreholder.floodPts = 0f;
-                        scoreholder.qualLifePts = 0f;
-                        scoreholder.pedSafetyDesc = "missing";
-                        scoreholder.floodDesc = "missing";
-                        scoreholder.qualLifeDesc = "missing";
+                        scoreholder.pedSafetyPts = -5f;
+                        scoreholder.floodPts = 20f;
+                        scoreholder.qualLifePts = -5f;
+                        scoreholder.pedSafetyDesc = "Safety: People might injure themselves by falling into them because the plants obscured the sinkholes.";
+                        scoreholder.floodDesc = "Hazard mitigation: Absorb then redirect runoff to the stormwater management system.Hence, reduces the overall flow rate.";
+                        scoreholder.qualLifeDesc = "Parking: The design can make pavement wider and streets narrower and hence impact the flow of traffic and reduce the parking spaces";
                         break;
                     case TileValues.TileType.wetlands:
                         scoreholder.pedSafetyPts = -10f;
@@ -188,12 +188,12 @@ public class Scoring
                 switch(tileTwo.type)
                 {
                     case TileValues.TileType.road:
-                        scoreholder.pedSafetyPts = 0f;
-                        scoreholder.floodPts = 0f;
+                        scoreholder.pedSafetyPts = 30f;
+                        scoreholder.floodPts = -20f;
                         scoreholder.qualLifePts = 0f;
-                        scoreholder.pedSafetyDesc = "missing";
-                        scoreholder.floodDesc = "missing";
-                        scoreholder.qualLifeDesc = "missing";
+                        scoreholder.pedSafetyDesc = "Safe grounds: security, public safety (neighborhood watch program)";
+                        scoreholder.floodDesc = "Flooded roads: Hinder commutes and access.";
+                        scoreholder.qualLifeDesc = "Damaging effects of road construction and management: Noise, dust, traffic congestion, and vibration.";
                         break;
                     case TileValues.TileType.wetlands:
                         scoreholder.pedSafetyPts = 0f;

@@ -143,8 +143,8 @@ public class StateManager : MonoBehaviour
 
     public void CalcScore(TileValues[,] gridTiles)
     {
-        scoreCalculator.GetScore(gridTiles);
-
+        Scoreholder totalScores = scoreCalculator.GetScore(gridTiles);
+        totalScores.printScore();
         
         /*for (int i=0; i<5; i++)
         {

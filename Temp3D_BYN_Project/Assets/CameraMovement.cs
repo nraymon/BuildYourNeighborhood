@@ -16,11 +16,11 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( Input.GetMouseButtonDown(0)){
+        if( Input.GetMouseButtonDown(1)){
           // true only in the 1st frame in which it detects a tap
           previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
-        else if(Input.GetMouseButton(0)){
+        else if(Input.GetMouseButton(1)){
           //true as long as touch is happening
           Vector3 newPosition = cam.ScreenToViewportPoint(Input.mousePosition);
           Vector3 direction = previousPosition - newPosition;

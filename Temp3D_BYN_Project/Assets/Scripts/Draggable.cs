@@ -180,7 +180,7 @@ public class Draggable : MonoBehaviour
 
         // If the mouse button is let go and we only have the draggable object,
         // then object stays where it was placed and returns to its original color.
-        if (Input.GetMouseButtonUp(0) && obj)
+        if (Input.GetMouseButtonUp(0) && obj && !state.GetTrash()) // should prevent grid tile from disappearing when a block is dragged to trash
         {
             if (!state.test())
             {
