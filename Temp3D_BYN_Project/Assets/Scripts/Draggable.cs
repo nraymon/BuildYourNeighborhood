@@ -31,6 +31,14 @@ public class Draggable : MonoBehaviour
     // allows the script to push a move onto the moves stack in StateManager
     MoveProperties move;
 
+<<<<<<< Updated upstream
+=======
+    public TileValues tileValues;
+    public TileValues.TileType tip;
+
+    PointerEventData eventData;
+
+>>>>>>> Stashed changes
     // State, click and color all need to be initialized with getComponent for unity to be pleased
     private void Start()
     {
@@ -98,6 +106,7 @@ public class Draggable : MonoBehaviour
                 pos.y = Mathf.Clamp(this.transform.position.y, 1.2f, 5f);
                 this.transform.position = pos;
             }
+            Debug.Log(this.tip);
         }
 
         // If both the draggable object and gridObj have a ray cast hitting them,
@@ -120,7 +129,14 @@ public class Draggable : MonoBehaviour
             move.gameObj = obj;
             move.objPos = obj.transform;
             move.replacementObj = gridObj;
+<<<<<<< Updated upstream
             state.AddElement(move);
+=======
+            // pass the current tile values (tileValues) into StateManager to calculate score
+            state.AddElement(move, gridObj.name, this.tip);
+
+            //state.snap(gridObj.name);
+>>>>>>> Stashed changes
 
             // no more destroying the gridObj, this allows for undoing a move
             gridObj.SetActive(false);
@@ -144,8 +160,66 @@ public class Draggable : MonoBehaviour
         // then object stays where it was placed and returns to its original color.
         if (Input.GetMouseButtonUp(0) && obj)
         {
+<<<<<<< Updated upstream
             this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
             obj = null;
+=======
+            if (!state.test())
+            {
+                tileValues.PrintValues();
+
+                // setting up the move element to be placed on the moves Stack in StateManager
+                move.gameObj = obj;
+                move.objPos = obj.transform;
+                gridObj = state.backThing();
+                Debug.Log(gridObj.name);
+                move.replacementObj = gridObj;
+                state.AddElement(move, gridObj.name, this.tip);
+
+                //state.snap(gridObj.name);
+
+                // no more destroying the gridObj, this allows for undoing a move
+                gridObj.SetActive(false);
+
+                // abstract this block in a function?
+                obj.transform.position = gridObj.transform.position;
+                Debug.Log(obj.transform.position);
+                obj.transform.position += new Vector3(0, .5f, 0);
+
+                if (obj.name.Substring(0, 7) == "Wetland")
+                {
+                    obj.transform.position += new Vector3(-.2f, .2f, 0);
+                }
+                else if (obj.name.Substring(0, 8) == "Bioswale")
+                {
+                    obj.transform.position += new Vector3(0, -.02f, 0);
+                }
+                else if (obj.name.Substring(0, 5) == "House" || obj.name.Substring(0, 4) == "Road")
+                {
+                    obj.transform.position += new Vector3(0, -.52f, 0);
+                }
+
+                Debug.Log(obj.transform.position);
+                obj.layer = 0;
+                Destroy(GetComponent<Draggable>());
+                this.gameObject.AddComponent<SpawnDraggable>();
+                this.gameObject.layer = 8;
+                this.gameObject.GetComponent<SpawnDraggable>().ephemeral = true;
+                this.gameObject.GetComponent<SpawnDraggable>().setGridObj(gridObj);
+                state.SetSpawn(true);
+                gridObj = null;
+
+                this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
+                obj = null;
+            }
+            else
+            {
+                Destroy(obj);
+                state.SetSpawn(true);
+            }
+            //this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
+            //obj = null;
+>>>>>>> Stashed changes
         }
     }
 }
