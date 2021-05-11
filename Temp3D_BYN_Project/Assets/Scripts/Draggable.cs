@@ -33,6 +33,8 @@ public class Draggable : MonoBehaviour
 
     TileValues tileValues;
 
+    public TileValues.TileType thisType;
+
     PointerEventData eventData;
 
     // State, click and color all need to be initialized with getComponent for unity to be pleased
@@ -129,7 +131,7 @@ public class Draggable : MonoBehaviour
             move.objPos = obj.transform;
             move.replacementObj = gridObj;
             // pass the current tile values (tileValues) into StateManager to calculate score
-            state.AddElement(move, gridObj.name, tileValues);
+            state.AddElement(move, gridObj.name, thisType);
 
             //state.snap(gridObj.name);
 
@@ -192,7 +194,7 @@ public class Draggable : MonoBehaviour
                 gridObj = state.backThing();
                 Debug.Log(gridObj.name);
                 move.replacementObj = gridObj;
-                state.AddElement(move, gridObj.name, tileValues);
+                state.AddElement(move, gridObj.name, thisType);
 
                 //state.snap(gridObj.name);
 

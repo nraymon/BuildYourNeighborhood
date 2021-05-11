@@ -6,7 +6,7 @@ public class Scoring
 {
 
     // calculate score between two blocks 
-    public Scoreholder GetScore(TileValues[,] gridTiles)
+    public Scoreholder GetScore(TileValues.TileType[,] gridTiles)
     {
         Scoreholder totalScores = new Scoreholder();    // stores total score 
         Scoreholder scoreholder = new Scoreholder();    // stores current tile interaction's score and description
@@ -53,16 +53,16 @@ public class Scoring
         return totalScores;
     }
 
-    public Scoreholder GetInteractions(TileValues tileOne, TileValues tileTwo)
+    public Scoreholder GetInteractions(TileValues.TileType tileOne, TileValues.TileType tileTwo)
     {
-        Debug.Log("Interaction: " + tileOne.type + ", " + tileTwo.type);
+        Debug.Log("Interaction: " + tileOne + ", " + tileTwo);
         Scoreholder scoreholder = new Scoreholder();
         
-        switch(tileOne.type)
+        switch(tileOne)
         {
             case TileValues.TileType.road:
                 //check interactions with all types
-                switch (tileTwo.type)
+                switch (tileTwo)
                 {
                     case TileValues.TileType.road:
                         scoreholder.pedSafetyPts = 10f;
@@ -103,7 +103,7 @@ public class Scoring
                 break;
             case TileValues.TileType.wetlands:
                 //check interactions with all types
-                switch (tileTwo.type)
+                switch (tileTwo)
                 {
                     case TileValues.TileType.road:
                         scoreholder.pedSafetyPts = -10f;
@@ -144,7 +144,7 @@ public class Scoring
                 break;
             case TileValues.TileType.bioswale:
                 //check interactions with all types
-                switch (tileTwo.type)
+                switch (tileTwo)
                 {
                     case TileValues.TileType.road:
                         scoreholder.pedSafetyPts = -5f;
@@ -185,7 +185,7 @@ public class Scoring
                 break;
             case TileValues.TileType.house:
                 //check interactions with all types
-                switch(tileTwo.type)
+                switch(tileTwo)
                 {
                     case TileValues.TileType.road:
                         scoreholder.pedSafetyPts = 30f;
