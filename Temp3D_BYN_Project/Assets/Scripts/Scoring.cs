@@ -55,7 +55,7 @@ public class Scoring
 
     public Scoreholder GetInteractions(TileValues.TileType tileOne, TileValues.TileType tileTwo)
     {
-        Debug.Log("Interaction: " + tileOne + ", " + tileTwo);
+        // Debug.Log("Interaction: " + tileOne + ", " + tileTwo);
         Scoreholder scoreholder = new Scoreholder();
         
         switch(tileOne)
@@ -228,9 +228,9 @@ public class Scoring
                 //skip empty tile
                 break;
         }
-        if ((tileOne.type != TileValues.TileType.none) && (tileTwo.type != TileValues.TileType.none)) // only log score between two actual tiles 
+        if ((tileOne != TileValues.TileType.none) && (tileTwo != TileValues.TileType.none)) // only log score between two actual tiles 
         {
-            Debug.Log("Interaction: " + tileOne.type + ", " + tileTwo.type);
+            Debug.Log("Interaction: " + tileOne + ", " + tileTwo);
             scoreholder.printScore();
         }
         return scoreholder;
