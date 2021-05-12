@@ -59,9 +59,8 @@ public class StateManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             totalScore = CalcScore(gridTiles);
-            int scoreVal = totalScore.getCombinedScore();
 
-            scoreDisplayController.updateScore(scoreVal);
+            scoreDisplayController.updateScore(totalScore);
 
             foreach (DictionaryEntry d in snapBack)
                 Debug.Log("Key: " + d.Key.ToString() + ", Value: " + d.Value.ToString());
