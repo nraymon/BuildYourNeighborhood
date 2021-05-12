@@ -22,8 +22,13 @@ public class StateManager : MonoBehaviour
     public float[,] gridPositions;
     public TileValues[,] gridTiles;
 
+    // scoring 
     public Scoring scoreCalculator;
+    public Scoreholder totalScore;
 
+    public GameObject scoreDisplay;
+    public ScoreDisplayController scoreDisplayController; // references the score displayed on the game UI 
+    
     public 
 
     void Start()
@@ -43,6 +48,9 @@ public class StateManager : MonoBehaviour
         }
         // scoring class used for calculating score and block interaction
         scoreCalculator = new Scoring();
+
+        scoreDisplay = GameObject.Find("Canvas/Score");
+        scoreDisplayController = scoreDisplay.GetComponent<ScoreDisplayController>(); // access scoreDisplayController script
     }
 
 
@@ -50,7 +58,10 @@ public class StateManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            CalcScore(gridTiles);
+            totalScore = CalcScore(gridTiles);
+            int scoreVal = totalScore.getCombinedScore();
+
+            scoreDisplayController.updateScore(scoreVal);
 
             foreach (DictionaryEntry d in snapBack)
                 Debug.Log("Key: " + d.Key.ToString() + ", Value: " + d.Value.ToString());
@@ -66,11 +77,7 @@ public class StateManager : MonoBehaviour
         int col = (int)Char.GetNumericValue(placement[0]);
         int row = (int)Char.GetNumericValue(placement[2]);
 
-        float score = tileValues.beauty;
-
-        Debug.Log("Temp: " + score + "\n" + "col: " + col + "\n" + "row: " + row + "\n");
-
-        gridPositions[col, row] = score;
+        // gridPositions[col, row] = score;
 
         // store current tile's values in its corresponding location on the grid 
         gridTiles[col, row] = tileValues;
@@ -84,7 +91,7 @@ public class StateManager : MonoBehaviour
     public void addThing(GameObject gridSpot)
     {
         back.Push(gridSpot);
-        Debug.Log("LMAOOOOOO: " + gridSpot.name);
+        Debug.Log("add thing: " + gridSpot.name);
     }
 
     public GameObject backThing()
@@ -141,26 +148,11 @@ public class StateManager : MonoBehaviour
     }
 
 
-    public void CalcScore(TileValues[,] gridTiles)
+    Scoreholder CalcScore(TileValues[,] gridTiles)
     {
         Scoreholder totalScores = scoreCalculator.GetScore(gridTiles);
+        Debug.Log("total score: ");
         totalScores.printScore();
-        
-        /*for (int i=0; i<5; i++)
-        {
-            for (int j=0; j<5; j++)
-            {
-                // if there's no tile in the current grid location, skip it
-                if (gridTiles[j,i] == null)
-                {
-                    Debug.Log(j + "," + i + ": null");
-                }
-                else
-                {
-                    // if the tile is on the edge 
-                    Debug.Log(j + "," + i + ": " + gridTiles[j, i].beauty);
-                }
-            }
-        }*/
+        return totalScores;
     }
 }

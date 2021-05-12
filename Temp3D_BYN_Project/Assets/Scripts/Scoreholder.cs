@@ -25,6 +25,11 @@ public class Scoreholder
 
     public void printScore()
     {
-        Debug.Log("Points: " + floodPts + ", " + pedSafetyPts + "," + qualLifePts);
+        Debug.Log("Points: " + pedSafetyPts + ", " + floodPts + "," + qualLifePts);
+    }
+
+    public int getCombinedScore()
+    {
+        return (int)(floodPts + pedSafetyPts + qualLifePts);
     }
 }

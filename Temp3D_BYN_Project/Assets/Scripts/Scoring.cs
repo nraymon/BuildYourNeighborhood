@@ -19,28 +19,28 @@ public class Scoring
                 if (i == 4 && j == 4)
                 {
                     // skip tile- already been calculated
-                    //Debug.Log("corner" + i + "," + j);
                 }
                 // tile is at edge- only perform calculation with block +1 j over, not +1 i
                 else if (i == 4)
                 {
-                    // get flood score with tile next to it (+1 j)
-                    //Debug.Log("i edge" + i + "," + j);
                     scoreholder = GetInteractions(gridTiles[i, j], gridTiles[i, j + 1]);
                 }
                 // tile is at edge- only perform calculation with block +1 i over, not +1 j
                 else if (j == 4)
                 {
-                    // get flood score with block below it (+1 i)
-                    //Debug.Log("j edge." + i + "," + j);
                     scoreholder = GetInteractions(gridTiles[i, j], gridTiles[i+1, j]);
                 }
-                // current tile should have a tile below and ndeext to it 
+                // current tile should have a tile below and next to it 
                 else
                 {
-                    //Debug.Log("non-edge" + i + "," + j);
                     //get flood score with block next to it (+1 j)
                     scoreholder = GetInteractions(gridTiles[i, j], gridTiles[i, j+1]);
+
+                    // add scores from current tile interaction to total scores 
+                    totalScores.floodPts += scoreholder.floodPts;
+                    totalScores.pedSafetyPts += scoreholder.pedSafetyPts;
+                    totalScores.qualLifePts += scoreholder.qualLifePts;
+
                     //get flood score with block below it (+1 i)
                     scoreholder = GetInteractions(gridTiles[i, j], gridTiles[i + 1, j]);
                 }
@@ -55,7 +55,6 @@ public class Scoring
 
     public Scoreholder GetInteractions(TileValues tileOne, TileValues tileTwo)
     {
-        Debug.Log("Interaction: " + tileOne.type + ", " + tileTwo.type);
         Scoreholder scoreholder = new Scoreholder();
         
         switch(tileOne.type)
@@ -228,7 +227,11 @@ public class Scoring
                 //skip empty tile
                 break;
         }
-        scoreholder.printScore();
+        if ((tileOne.type != TileValues.TileType.none) && (tileTwo.type != TileValues.TileType.none)) // only log score between two actual tiles 
+        {
+            Debug.Log("Interaction: " + tileOne.type + ", " + tileTwo.type);
+            scoreholder.printScore();
+        }
         return scoreholder;
     }
 }
