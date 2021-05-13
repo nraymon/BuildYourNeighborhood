@@ -1,7 +1,8 @@
 ## Welcome to GitHub Pages
-[Link to another page](./team.html).
+<div align = "center">
+[Home](./team.html) / [Project Team](./team.html) / [Timeline](./team.html)
 You can use the [editor on GitHub](https://github.com/nraymon/BuildYourNeighborhood/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
+</div>
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
 ### Markdown
