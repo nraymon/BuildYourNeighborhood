@@ -19,25 +19,32 @@ public class StateManager : MonoBehaviour
     // move will be used when the player wishes to undo their move; it will become the move popped off the stack
     MoveProperties move;
 
-    public float[,] gridPositions;
-    public TileValues.TileType[,] gridTiles;
+    //public float[,] gridPositions;
+    public TileValues.TileType[,] gridTiles;                // 2D grid that stores tile values at each location
 
     // scoring 
-    public Scoring scoreCalculator;
-    public Scoreholder totalScore;
+    public Scoring scoreCalculator;                         // object used to calculate score based on tile arrangement on grid
+    public Scoreholder totalScore;                          // object used to store total scores/descriptions for each of the 3 goals
 
-    public GameObject scoreDisplay;
-    public ScoreDisplayController scoreDisplayController; // references the score displayed on the game UI 
-    
+    public GameObject scoreDisplay;                         // gameObject UI that displays the score
+    public ScoreDisplayController scoreDisplayController;   // script used to control score UI
+
+    public GameObject floodGoal;                            // gameObject UI that displays the flood goal progress                          
+    public FloodGoalController floodGoalController;         // script used to control flood goal
+    public GameObject housingGoal;                          // gameObject UI that displays the housing goal progress 
+    public HousingGoalController housingGoalController;     // script used to control housing goal
+    public GameObject pedSafetyGoal;                        // gameObject UI that displays the pedestrian safety goal progress 
+    public PedSafetyGoalController pedSafetyGoalController; // script used to control pedestrian safety goal
+
     public 
 
     void Start()
     {
-        gridPositions = new float[5, 5] { { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f } };
+        //gridPositions = new float[5, 5] { { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f } };
         
         // initiate grid with empty tile values
         gridTiles = new TileValues.TileType[5, 5];
-        TileValues noneTileValues = new TileValues();
+        TileValues noneTileValues = new TileValues();               // "none" type means no tile is present at this location of the grid
         noneTileValues.AssignValues(0, TileValues.TileType.none);
         for (int i=0; i<5; i++)
         {
@@ -49,8 +56,16 @@ public class StateManager : MonoBehaviour
         // scoring class used for calculating score and block interaction
         scoreCalculator = new Scoring();
 
-        scoreDisplay = GameObject.Find("Canvas/Score");
-        scoreDisplayController = scoreDisplay.GetComponent<ScoreDisplayController>(); // access scoreDisplayController script
+        // find all scoring UI gameobjects in the game hierarchy and access their scripts 
+        scoreDisplay = GameObject.Find("Canvas/Score");                                 // find the score display gameobject
+        scoreDisplayController = scoreDisplay.GetComponent<ScoreDisplayController>();   // access scoreDisplayController script
+
+        floodGoal = GameObject.Find("Canvas/Goals/Flood Progress Bar");                 // find the flood goal gameobject
+        floodGoalController = floodGoal.GetComponent<FloodGoalController>();            // access the flood goal controller script 
+        housingGoal = GameObject.Find("Canvas/Goals/Housing Progress Bar");             // find the flood goal gameobject
+        housingGoalController = housingGoal.GetComponent<HousingGoalController>();      // access the flood goal controller script 
+        pedSafetyGoal = GameObject.Find("Canvas/Goals/PedSafety Progress Bar");         // find the flood goal gameobject
+        pedSafetyGoalController = pedSafetyGoal.GetComponent<PedSafetyGoalController>();// access the flood goal controller script 
     }
 
 
@@ -58,8 +73,8 @@ public class StateManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
+            // manually update score for debugging purposes
             totalScore = CalcScore(gridTiles);
-
             scoreDisplayController.updateScore(totalScore);
 
             foreach (DictionaryEntry d in snapBack)
@@ -71,15 +86,20 @@ public class StateManager : MonoBehaviour
     public void AddElement(MoveProperties move, string placement, TileValues.TileType tileValues)
     {
         Debug.Log("AddElement TileValues: ");
-        //tileValues.PrintValues();
-        //moves.Push(move);
+
+        // get location of tile placement on the grid
         int col = (int)Char.GetNumericValue(placement[0]);
         int row = (int)Char.GetNumericValue(placement[2]);
 
-        // gridPositions[col, row] = score;
-
-        // store current tile's values in its corresponding location on the grid 
+        // store current tile's values in its corresponding location on the tile values grid 
         gridTiles[col, row] = tileValues;
+
+        // calculate score based on current tiles on grid and display on UI
+        totalScore = CalcScore(gridTiles);                 
+        scoreDisplayController.updateScore(totalScore);     // update total score UI
+        floodGoalController.updateScore(totalScore);        // update flood goal UI
+        housingGoalController.updateScore(totalScore);      // update housing/quality of life goal UI
+        pedSafetyGoalController.updateScore(totalScore);    // update ped safety goal UI
     }
 
     public void snap(string gridSpot)
@@ -117,13 +137,17 @@ public class StateManager : MonoBehaviour
         int col = (int)Char.GetNumericValue(placement[0]);
         int row = (int)Char.GetNumericValue(placement[2]);
 
-        gridPositions[col, row] = 0f;
+        //gridPositions[col, row] = 0f;
 
         TileValues tileValues = new TileValues();
         tileValues.AssignValues(0, TileValues.TileType.none);
         gridTiles[col, row] = tileValues.type;
 
-        Debug.Log("gone");
+        Debug.Log("tile removed from grid.");
+
+        // calculate score based on current tiles on grid and display on UI
+        totalScore = CalcScore(gridTiles);
+        scoreDisplayController.updateScore(totalScore);
     }
 
     public bool GetSpawn()

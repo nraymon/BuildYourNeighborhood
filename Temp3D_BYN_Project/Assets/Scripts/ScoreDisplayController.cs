@@ -19,7 +19,7 @@ public class ScoreDisplayController : MonoBehaviour
         
     }
 
-    // takes a 
+    // takes a scoreholder object, calculates a total score, and displays it on the screen 
     public void updateScore(Scoreholder scoreholder)
     {
         int score = scoreholder.getCombinedScore();

@@ -140,7 +140,7 @@ public class Draggable : MonoBehaviour
 
             // abstract this block in a function?
             obj.transform.position = gridObj.transform.position;
-            Debug.Log(obj.transform.position);
+            //Debug.Log(obj.transform.position);
             obj.transform.position += new Vector3(0, .5f, 0);
 
             if (obj.name.Substring(0, 7) == "Wetland")
@@ -156,7 +156,7 @@ public class Draggable : MonoBehaviour
                 obj.transform.position += new Vector3(0, -.52f, 0);
             }
 
-            Debug.Log(obj.transform.position);
+            //Debug.Log(obj.transform.position);
             obj.layer = 0;
             Destroy(GetComponent<Draggable>());
             this.gameObject.AddComponent<SpawnDraggable>();
@@ -203,7 +203,7 @@ public class Draggable : MonoBehaviour
 
                 // abstract this block in a function?
                 obj.transform.position = gridObj.transform.position;
-                Debug.Log(obj.transform.position);
+                // Debug.Log(obj.transform.position);
                 obj.transform.position += new Vector3(0, .5f, 0);
 
                 if (obj.name.Substring(0, 7) == "Wetland")
@@ -219,7 +219,7 @@ public class Draggable : MonoBehaviour
                     obj.transform.position += new Vector3(0, -.52f, 0);
                 }
 
-                Debug.Log(obj.transform.position);
+                // Debug.Log(obj.transform.position);
                 obj.layer = 0;
                 Destroy(GetComponent<Draggable>());
                 this.gameObject.AddComponent<SpawnDraggable>();
