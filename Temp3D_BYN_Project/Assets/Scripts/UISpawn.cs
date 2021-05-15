@@ -34,7 +34,9 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
             pos.z += 5f;
             Quaternion rot = Quaternion.identity;
             //rot.z -= 1;
-            temp = Instantiate(tVal.GetWet(), pos, tVal.GetWet().transform.rotation);
+            Debug.Log("Wetlands pos: " + pos.ToString());
+            //temp = Instantiate(tVal.GetWet(), pos, tVal.GetWet().transform.rotation);
+            temp = Instantiate(tVal.GetWet(), state.wetlandPos.transform.position, tVal.GetWet().transform.rotation);
         }
 
         if (this.gameObject.GetComponent<UISpawn>().tileType == TileValues.TileType.bioswale)
@@ -47,7 +49,9 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
             Quaternion rot = Quaternion.identity;
 
             //rot.y += 1;
-            temp = Instantiate(tVal.GetBio(), pos, tVal.GetBio().transform.rotation);
+            Debug.Log("Bioswale pos: " + pos.ToString());
+            //temp = Instantiate(tVal.GetBio(), pos, tVal.GetBio().transform.rotation);
+            temp = Instantiate(tVal.GetBio(), state.bioswalePos.transform.position, tVal.GetBio().transform.rotation);
         }
 
         if (this.gameObject.GetComponent<UISpawn>().tileType == TileValues.TileType.house)
@@ -59,7 +63,9 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
             pos.z += 5f;
             Quaternion rot = Quaternion.identity;
             //rot.y -= 1;
-            temp = Instantiate(tVal.GetHouse(), pos, tVal.GetHouse().transform.rotation);
+            Debug.Log("House pos: " + pos.ToString());
+            //temp = Instantiate(tVal.GetHouse(), pos, tVal.GetHouse().transform.rotation);
+            temp = Instantiate(tVal.GetHouse(), state.housePos.transform.position, tVal.GetHouse().transform.rotation);
         }
 
         if (this.gameObject.GetComponent<UISpawn>().tileType == TileValues.TileType.road)
@@ -71,7 +77,9 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
             pos.z += 5f;
             Quaternion rot = Quaternion.identity;
             //rot.z -= 1;
-            temp = Instantiate(tVal.GetRoad(), pos, tVal.GetRoad().transform.rotation);
+            Debug.Log("Road pos: " + pos.ToString());
+            //temp = Instantiate(tVal.GetRoad(), pos, tVal.GetRoad().transform.rotation);
+            temp = Instantiate(tVal.GetRoad(), state.roadPos.transform.position, tVal.GetRoad().transform.rotation);
         }
 
         temp.name = temp.name + num;

@@ -106,6 +106,7 @@ public class Draggable : MonoBehaviour
                 pos.y = Mathf.Clamp(this.transform.position.y, 0f, 5f);
                 this.transform.position = pos;
             }
+            //Debug.Log(this.gameObject.transform.position);
         }
 
         // If both the draggable object and gridObj have a ray cast hitting them,
