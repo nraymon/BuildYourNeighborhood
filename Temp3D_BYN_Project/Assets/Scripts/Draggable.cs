@@ -179,6 +179,7 @@ public class Draggable : MonoBehaviour
             //state.Delete(obj.GetComponent<Draggable>().gridObj.name);
             Destroy(obj);
             state.SetSpawn(true);
+            state.backThing();
         }
 
         // If the mouse button is let go and we only have the draggable object,
