@@ -18,11 +18,16 @@ public class CameraMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            float dist = Vector3.Distance(target.position, cam.transform.position);
+            Debug.Log("distance: " + dist);
             // true only in the 1st frame in which it detects a tap
             previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
         else if (Input.GetMouseButton(1))
         {
+
+            float dist = Vector3.Distance(target.position, cam.transform.position);
+            Debug.Log("distance: " + dist);
             //true as long as touch is happening
             Vector3 newPosition = cam.ScreenToViewportPoint(Input.mousePosition);
             Vector3 direction = previousPosition - newPosition;
@@ -41,7 +46,8 @@ public class CameraMovement : MonoBehaviour
 
             cam.transform.Rotate(new Vector3(0, 1, 0), rotationAroundYAxis, Space.World);
 
-            cam.transform.Translate(new Vector3(0, 0, -distanceToTarget));
+            //cam.transform.Translate(new Vector3(0, 0, -distanceToTarget));
+            cam.transform.Translate(new Vector3(0, 0, -dist));
 
             previousPosition = newPosition;
         }

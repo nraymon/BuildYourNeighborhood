@@ -17,6 +17,7 @@ public class StateManager : MonoBehaviour
     public GameObject bioswalePos;
     public GameObject housePos;
     public GameObject roadPos;
+    public GameObject mainSpawn;
 
     // This stack will keep track of the moves that have been made
     Hashtable snapBack = new Hashtable();

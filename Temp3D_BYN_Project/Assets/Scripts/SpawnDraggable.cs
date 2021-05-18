@@ -52,7 +52,7 @@ public class SpawnDraggable : MonoBehaviour
             if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Draggable")) && state.GetSpawn())
             {
 
-                if (hit.collider.name == "RoadSpawner" || hit.collider.name.Substring(0, 4) == "Road")
+                if ((hit.collider.name == "RoadSpawner" || hit.collider.name.Substring(0, 4) == "Road") && state.GetSpawn())
                 {
                     temp = Instantiate(tVal.GetRoad());
 
@@ -64,7 +64,7 @@ public class SpawnDraggable : MonoBehaviour
                         StartCoroutine(hold(hit));
                     }
                 }
-                if (hit.collider.name == "HouseSpawner" || hit.collider.name.Substring(0, 5) == "House")
+                if ((hit.collider.name == "HouseSpawner" || hit.collider.name.Substring(0, 5) == "House") && state.GetSpawn())
                 {
                     temp = Instantiate(tVal.GetHouse());
 
@@ -76,7 +76,7 @@ public class SpawnDraggable : MonoBehaviour
                         StartCoroutine(hold(hit));
                     }
                 }
-                if (hit.collider.name == "WetSpawner" || hit.collider.name.Substring(0, 7) == "Wetland")
+                if ((hit.collider.name == "WetSpawner" || hit.collider.name.Substring(0, 7) == "Wetland") && state.GetSpawn())
                 {
 
                     temp = Instantiate(tVal.GetWet());
@@ -89,7 +89,7 @@ public class SpawnDraggable : MonoBehaviour
                         StartCoroutine(hold(hit));
                     }
                 }
-                if (hit.collider.name == "BioSpawner" || hit.collider.name.Substring(0, 8) == "Bioswale")
+                if ((hit.collider.name == "BioSpawner" || hit.collider.name.Substring(0, 8) == "Bioswale") && state.GetSpawn())
                 {
                     temp = Instantiate(tVal.GetBio());
 
