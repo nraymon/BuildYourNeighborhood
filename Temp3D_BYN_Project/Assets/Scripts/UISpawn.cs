@@ -57,7 +57,7 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
             //rot.z -= 1;
             //Debug.Log("Wetlands pos: " + state.wetlandPos.transform.position);
             //temp = Instantiate(tVal.GetWet(), pos, tVal.GetWet().transform.rotation);
-            temp = Instantiate(tVal.GetWet(), spawnPoint, tVal.GetWet().transform.rotation);
+            temp = Instantiate(tVal.GetWet(), state.mainSpawn.transform.position, tVal.GetWet().transform.rotation);
         }
 
         if (this.gameObject.GetComponent<UISpawn>().tileType == TileValues.TileType.bioswale && state.GetSpawn())
@@ -80,7 +80,7 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
             //rot.y += 1;
             //Debug.Log("Bioswale pos: " + pos.ToString());
             //temp = Instantiate(tVal.GetBio(), pos, tVal.GetBio().transform.rotation);
-            temp = Instantiate(tVal.GetBio(), spawnPoint, tVal.GetBio().transform.rotation);
+            temp = Instantiate(tVal.GetBio(), state.mainSpawn.transform.position, tVal.GetBio().transform.rotation);
         }
 
         if (this.gameObject.GetComponent<UISpawn>().tileType == TileValues.TileType.house && state.GetSpawn())
@@ -97,7 +97,7 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
             //rot.y -= 1;
             Debug.Log("House pos: " + pos.ToString());
             //temp = Instantiate(tVal.GetHouse(), pos, tVal.GetHouse().transform.rotation);
-            temp = Instantiate(tVal.GetHouse(), spawnPoint, tVal.GetHouse().transform.rotation);
+            temp = Instantiate(tVal.GetHouse(), state.mainSpawn.transform.position, tVal.GetHouse().transform.rotation);
         }
 
         if (this.gameObject.GetComponent<UISpawn>().tileType == TileValues.TileType.road && state.GetSpawn())
@@ -114,7 +114,7 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
             //rot.z -= 1;
             Debug.Log("Road pos: " + pos.ToString());
             //temp = Instantiate(tVal.GetRoad(), pos, tVal.GetRoad().transform.rotation);
-            temp = Instantiate(tVal.GetRoad(), spawnPoint, tVal.GetRoad().transform.rotation);
+            temp = Instantiate(tVal.GetRoad(), state.mainSpawn.transform.position, tVal.GetRoad().transform.rotation);
         }
 
         temp.name = temp.name + num;
