@@ -55,7 +55,6 @@ public class Draggable : MonoBehaviour
     private void Update()
     {
 
-
         if (Input.GetMouseButton(0))
         {
             mouseRay = click.GenerateMouseRay();
@@ -178,10 +177,10 @@ public class Draggable : MonoBehaviour
             //tileValues.PrintValues();
         }
 
-        if (Input.GetMouseButtonUp(0) && obj && state.GetTrash())
+        if (Input.GetMouseButton(0) && obj && state.GetTrash())
         {
             //state.Delete(obj.GetComponent<Draggable>().gridObj.name);
-            Destroy(obj);
+            Destroy(this.gameObject);
             state.SetSpawn(true);
             state.backThing();
         }

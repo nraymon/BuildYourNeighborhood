@@ -16,10 +16,9 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(1))
         {
-            float dist = Vector3.Distance(target.position, cam.transform.position);
-            Debug.Log("distance: " + dist);
             // true only in the 1st frame in which it detects a tap
             previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
@@ -27,7 +26,6 @@ public class CameraMovement : MonoBehaviour
         {
 
             float dist = Vector3.Distance(target.position, cam.transform.position);
-            Debug.Log("distance: " + dist);
             //true as long as touch is happening
             Vector3 newPosition = cam.ScreenToViewportPoint(Input.mousePosition);
             Vector3 direction = previousPosition - newPosition;
@@ -42,6 +40,7 @@ public class CameraMovement : MonoBehaviour
             // Limits the roation around x axis - can't go under grid
             Vector3 curRotation = cam.transform.localRotation.eulerAngles;
             curRotation.x = Mathf.Clamp(curRotation.x, 22, 30);
+            curRotation.z = Mathf.Clamp(curRotation.z, 0, 2);
             cam.transform.localRotation = Quaternion.Euler(curRotation);
 
             cam.transform.Rotate(new Vector3(0, 1, 0), rotationAroundYAxis, Space.World);

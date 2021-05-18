@@ -21,7 +21,6 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
     {
         state = GameObject.Find("GameManager").GetComponent<StateManager>();
         tVal = GameObject.Find("GameManager").GetComponent<TileValues>();
-        spawnPoint = state.mainSpawn.transform.position;
     }
 
     public void OnPointerDown(PointerEventData eventData)

@@ -78,7 +78,6 @@ public class SpawnDraggable : MonoBehaviour
                 }
                 if ((hit.collider.name == "WetSpawner" || hit.collider.name.Substring(0, 7) == "Wetland") && state.GetSpawn())
                 {
-
                     temp = Instantiate(tVal.GetWet());
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
