@@ -45,13 +45,15 @@ public class Draggable : MonoBehaviour
         color = GameObject.Find("GameManager").GetComponent<ObjColorShading>();
         tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
 
+        // will destoy this object after 10 seconds if not clicked on
+        Invoke("DestroyMe", 2.0f);
+
         // for now this needs to be new for the other elements in the moves stack to be unique
         move = new MoveProperties();
     }
 
     private void Update()
     {
-
 
         if (Input.GetMouseButton(0))
         {
@@ -96,6 +98,7 @@ public class Draggable : MonoBehaviour
         // is clamped so that the object is alway above the grid.
         if (Input.GetMouseButton(0) && obj)
         {
+            CancelInvoke("DestroyMe");
             Ray mRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             float rayDist;
             this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 100, 0, 0, 100));
@@ -103,9 +106,10 @@ public class Draggable : MonoBehaviour
             {
                 this.transform.position = mRay.GetPoint(rayDist);
                 var pos = this.transform.position;
-                pos.y = Mathf.Clamp(this.transform.position.y, 0f, 5f);
+                pos.y = Mathf.Clamp(this.transform.position.y, -5f, 5f);
                 this.transform.position = pos;
             }
+            //Debug.Log(this.gameObject.transform.position);
         }
 
         // If both the draggable object and gridObj have a ray cast hitting them,
@@ -173,11 +177,12 @@ public class Draggable : MonoBehaviour
             //tileValues.PrintValues();
         }
 
-        if (Input.GetMouseButtonUp(0) && obj && state.GetTrash())
+        if (Input.GetMouseButton(0) && obj && state.GetTrash())
         {
             //state.Delete(obj.GetComponent<Draggable>().gridObj.name);
-            Destroy(obj);
+            Destroy(this.gameObject);
             state.SetSpawn(true);
+            state.backThing();
         }
 
         // If the mouse button is let go and we only have the draggable object,
@@ -240,5 +245,11 @@ public class Draggable : MonoBehaviour
             //this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
             //obj = null;
         }
+    }
+
+    void DestroyMe()
+    {
+        Destroy(this.gameObject);
+        state.SetSpawn(true);
     }
 }

@@ -12,6 +12,13 @@ public class StateManager : MonoBehaviour
 
     bool trash = false;
 
+    // These gameObjects will be used for their positions for the tiles to spawn in UiSpawn
+    public GameObject wetlandPos;
+    public GameObject bioswalePos;
+    public GameObject housePos;
+    public GameObject roadPos;
+    public GameObject mainSpawn;
+
     // This stack will keep track of the moves that have been made
     Hashtable snapBack = new Hashtable();
 
