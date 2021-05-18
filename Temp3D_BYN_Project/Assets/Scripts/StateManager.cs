@@ -62,10 +62,10 @@ public class StateManager : MonoBehaviour
 
         floodGoal = GameObject.Find("Canvas/Goals/Flood Progress Bar");                 // find the flood goal gameobject
         floodGoalController = floodGoal.GetComponent<FloodGoalController>();            // access the flood goal controller script 
-        housingGoal = GameObject.Find("Canvas/Goals/Housing Progress Bar");             // find the flood goal gameobject
-        housingGoalController = housingGoal.GetComponent<HousingGoalController>();      // access the flood goal controller script 
-        pedSafetyGoal = GameObject.Find("Canvas/Goals/PedSafety Progress Bar");         // find the flood goal gameobject
-        pedSafetyGoalController = pedSafetyGoal.GetComponent<PedSafetyGoalController>();// access the flood goal controller script 
+        housingGoal = GameObject.Find("Canvas/Goals/Housing Progress Bar");             // find the housing goal gameobject
+        housingGoalController = housingGoal.GetComponent<HousingGoalController>();      // access the housing goal controller script 
+        pedSafetyGoal = GameObject.Find("Canvas/Goals/PedSafety Progress Bar");         // find the pedSafety goal gameobject
+        pedSafetyGoalController = pedSafetyGoal.GetComponent<PedSafetyGoalController>();// access the pedSafety goal controller script 
     }
 
 
@@ -148,6 +148,9 @@ public class StateManager : MonoBehaviour
         // calculate score based on current tiles on grid and display on UI
         totalScore = CalcScore(gridTiles);
         scoreDisplayController.updateScore(totalScore);
+        floodGoalController.updateScore(totalScore);        // update flood goal UI
+        housingGoalController.updateScore(totalScore);      // update housing/quality of life goal UI
+        pedSafetyGoalController.updateScore(totalScore);    // update ped safety goal UI
     }
 
     public bool GetSpawn()

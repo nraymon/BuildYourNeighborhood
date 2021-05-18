@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 194092168}
   - component: {fileID: 194092170}
   m_Layer: 5
-  m_Name: Progress Bar 2
+  m_Name: PedSafety Progress Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1577,7 +1577,7 @@ GameObject:
   - component: {fileID: 445030160}
   - component: {fileID: 445030159}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: housing points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2261,7 +2261,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.367
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2779,7 +2779,7 @@ GameObject:
   - component: {fileID: 769776012}
   - component: {fileID: 769776014}
   m_Layer: 5
-  m_Name: Progress Bar 3
+  m_Name: Housing Progress Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3205,6 +3205,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreDisplay: {fileID: 0}
   scoreDisplayController: {fileID: 0}
+  floodGoal: {fileID: 0}
+  floodGoalController: {fileID: 0}
+  housingGoal: {fileID: 0}
+  housingGoalController: {fileID: 0}
+  pedSafetyGoal: {fileID: 0}
+  pedSafetyGoalController: {fileID: 0}
 --- !u!4 &922441647
 Transform:
   m_ObjectHideFlags: 0
@@ -3564,7 +3570,7 @@ GameObject:
   - component: {fileID: 1070696547}
   - component: {fileID: 1070696546}
   m_Layer: 5
-  m_Name: Text
+  m_Name: flood points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3858,7 +3864,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.765
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -5412,7 +5418,7 @@ GameObject:
   - component: {fileID: 1549671200}
   - component: {fileID: 1549671199}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: pedSafety points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6846,7 +6852,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.59
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -7153,6 +7159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObj: {fileID: 0}
+  thisType: 0
 --- !u!1 &2061776797
 GameObject:
   m_ObjectHideFlags: 0
@@ -7166,7 +7173,7 @@ GameObject:
   - component: {fileID: 2061776799}
   - component: {fileID: 2061776801}
   m_Layer: 5
-  m_Name: Progress Bar 1
+  m_Name: Flood Progress Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
