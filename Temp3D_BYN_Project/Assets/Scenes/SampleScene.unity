@@ -124,6 +124,42 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &42830848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42830849}
+  m_Layer: 5
+  m_Name: Text Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &42830849
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42830848}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1931548529}
+  m_Father: {fileID: 1052337172}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000026786885, y: -147.7682}
+  m_SizeDelta: {x: 639.9199, y: 693.1364}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &52357727
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,7 +923,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 108.899994, y: 0}
+  m_AnchoredPosition: {x: 298.1, y: 0}
   m_SizeDelta: {x: 35.300003, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &296891804
@@ -1305,7 +1341,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.0000047684, y: -1.1748}
-  m_SizeDelta: {x: 259.1979, y: 33.024292}
+  m_SizeDelta: {x: 413.9, y: 33.024292}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &351491769
 MonoBehaviour:
@@ -1340,7 +1376,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Progress Tracker
+  m_Text: What is changing my score...
 --- !u!222 &351491770
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2278,12 +2314,12 @@ RectTransform:
   - {fileID: 351491768}
   - {fileID: 296891803}
   m_Father: {fileID: 1052337172}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -129.599, y: -17.7}
-  m_SizeDelta: {x: 259.1978, y: 35.3739}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 180.4}
+  m_SizeDelta: {x: 639.8, y: 35.3739}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &494912073
 MonoBehaviour:
@@ -3947,6 +3983,8 @@ GameObject:
   - component: {fileID: 1052337172}
   - component: {fileID: 1052337174}
   - component: {fileID: 1052337173}
+  - component: {fileID: 1052337176}
+  - component: {fileID: 1052337175}
   m_Layer: 5
   m_Name: ScorePanel
   m_TagString: Untagged
@@ -3965,15 +4003,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 42830849}
   - {fileID: 494912072}
-  - {fileID: 1931548529}
   m_Father: {fileID: 655939573}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 259.19794, y: 202.16708}
+  m_SizeDelta: {x: 640.04, y: 397.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1052337173
 MonoBehaviour:
@@ -4013,6 +4051,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052337171}
   m_CullTransparentMesh: 0
+--- !u!114 &1052337175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052337171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
+--- !u!114 &1052337176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052337171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Content: {fileID: 42830849}
+  m_Horizontal: 0
+  m_Vertical: 1
+  m_MovementType: 1
+  m_Elasticity: 0.1
+  m_Inertia: 1
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 1
+  m_Viewport: {fileID: 0}
+  m_HorizontalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 0}
+  m_HorizontalScrollbarVisibility: 0
+  m_VerticalScrollbarVisibility: 0
+  m_HorizontalScrollbarSpacing: 0
+  m_VerticalScrollbarSpacing: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1061680735
 GameObject:
   m_ObjectHideFlags: 0
@@ -7147,17 +7228,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931548528}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1052337172}
-  m_RootOrder: 1
+  m_Father: {fileID: 42830849}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.76, y: -14.98}
-  m_SizeDelta: {x: 238.47754, y: 148.75974}
+  m_AnchoredPosition: {x: -5.4, y: -39}
+  m_SizeDelta: {x: 595.3878, y: 676.2904}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1931548530
 MonoBehaviour:
@@ -7192,8 +7273,37 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pop-up dedicated to initialize upon progress changes, object descriptions,
-    and general information.
+  m_Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in mi venenatis,
+    viverra turpis a, fermentum ex. Etiam ut lacus non tortor finibus condimentum
+    in vitae dui. Morbi tincidunt pulvinar tortor id cursus. Sed ac enim nec dolor
+    eleifend maximus vel vel eros. Phasellus vel magna scelerisque augue auctor accumsan
+    quis vitae ipsum. Duis egestas dignissim velit, quis vulputate erat. In fermentum
+    porta tellus, feugiat pellentesque neque eleifend eu. Sed a urna vitae augue
+    mattis mattis facilisis id tellus. Duis consectetur nisl a est gravida sodales.
+    Ut vehicula est at sapien facilisis, vel iaculis nibh condimentum. Donec ultricies
+    tempor felis quis tincidunt.
+
+    
+
+    Curabitur ac lorem sapien. Pellentesque
+    sem ipsum, vehicula vitae euismod nec, volutpat vitae elit. Nunc tristique pretium
+    lacinia. Mauris sed auctor mi. Mauris semper eget nulla ac suscipit. Vestibulum
+    porttitor sem sit amet eleifend semper. Duis sagittis, mi blandit fringilla egestas,
+    dui erat suscipit magna, quis egestas nulla tellus vel nunc. Suspendisse nibh
+    libero, semper ut egestas et, dictum non libero. Aliquam posuere hendrerit vulputate.
+
+    
+
+    Nullam
+    nisl est, fermentum eu mattis ac, facilisis ac lacus. In tempus dolor et nisi
+    efficitur bibendum. Mauris bibendum fringilla lectus a rhoncus. Mauris eleifend
+    felis sed sem dignissim facilisis. Sed ac ligula ut sem bibendum laoreet in eu
+    nulla. Maecenas ultrices sapien sapien, nec feugiat sem convallis et. Aliquam
+    enim augue, rutrum et efficitur vitae, porta quis neque. Sed quis ipsum ut ipsum
+    fringilla facilisis non eu libero. Sed lacinia augue at efficitur aliquam. Nulla
+    facilisi. Praesent accumsan metus eu ultricies tristique. Curabitur ut tellus
+    lobortis orci euismod accumsan. Ut eleifend cursus ante. Vivamus nulla quam,
+    elementum a nisi sit amet, gravida scelerisque tortor.'
 --- !u!222 &1931548531
 CanvasRenderer:
   m_ObjectHideFlags: 0
