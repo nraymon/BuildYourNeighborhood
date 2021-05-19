@@ -33,6 +33,8 @@ public class Draggable : MonoBehaviour
 
     TileValues tileValues;
 
+    public bool stay = false;
+
     public TileValues.TileType thisType;
 
     PointerEventData eventData;
@@ -54,6 +56,11 @@ public class Draggable : MonoBehaviour
 
     private void Update()
     {
+
+        if (stay == false)
+        {
+            this.gameObject.transform.position = state.mainSpawn.transform.position;
+        }
 
         if (Input.GetMouseButton(0))
         {

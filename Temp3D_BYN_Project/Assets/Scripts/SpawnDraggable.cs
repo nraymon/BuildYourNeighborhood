@@ -55,6 +55,7 @@ public class SpawnDraggable : MonoBehaviour
                 if ((hit.collider.name == "RoadSpawner" || hit.collider.name.Substring(0, 4) == "Road") && state.GetSpawn())
                 {
                     temp = Instantiate(tVal.GetRoad());
+                    temp.GetComponent<Draggable>().stay = true;
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
@@ -67,6 +68,7 @@ public class SpawnDraggable : MonoBehaviour
                 if ((hit.collider.name == "HouseSpawner" || hit.collider.name.Substring(0, 5) == "House") && state.GetSpawn())
                 {
                     temp = Instantiate(tVal.GetHouse());
+                    temp.GetComponent<Draggable>().stay = true;
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
@@ -79,6 +81,7 @@ public class SpawnDraggable : MonoBehaviour
                 if ((hit.collider.name == "WetSpawner" || hit.collider.name.Substring(0, 7) == "Wetland") && state.GetSpawn())
                 {
                     temp = Instantiate(tVal.GetWet());
+                    temp.GetComponent<Draggable>().stay = true;
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
@@ -91,6 +94,7 @@ public class SpawnDraggable : MonoBehaviour
                 if ((hit.collider.name == "BioSpawner" || hit.collider.name.Substring(0, 8) == "Bioswale") && state.GetSpawn())
                 {
                     temp = Instantiate(tVal.GetBio());
+                    temp.GetComponent<Draggable>().stay = true;
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
