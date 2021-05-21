@@ -8,7 +8,7 @@ The game is developed using Unity as the game engine. This provides a way to exp
 
 ## Technology Requirements
 
-### Software Required
+### Software Required and Build directions
 
 In order to run this source code, you will need the Unity Engine. The [Unity Hub](https://unity3d.com/get-unity/download) will allow you download different versions of unity and access different Unity projects. This is the [Version](https://unity3d.com/unity/whats-new/2020.1.12) we have been using to make our game. This will ensure the version you run closely matches what we've experienced and know works. If you want to be able to build this game for anything other than a Windows PC, make sure you choose the modules for the operating system you would like to build for. To get to modules, open Unity Hub. On the left hand side of the app there should be a list of directories, click on installs. Click the three dot menu on version 2020.1.12f1 -> add modules. This should bring up a list of build support options and just choose whichever platforms you would like to build for. Once you have downloaded the Hub and the Unity version, you'll be able to run our code. First, you will need to download this repo. You can do that through your chosen git interface or directly from this page from the green "code" button in the top right.
 
