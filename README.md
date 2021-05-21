@@ -23,8 +23,9 @@ This has only been tested on Windows 10 and Mac machines, but you will need at l
 * A Graphics device capable of DX 10, 11, and/or 12 / OpenGL 3.2+, Vulkan capable.
 * 2 GB of RAM
 
-#### Android:
 iPhone app would need to be put on the app store which we have not done yet.
+
+#### Android:
 
 * Version 4.4 (API 19)+
 * ARMv7 with Neon Support (32-bit) or ARM64
