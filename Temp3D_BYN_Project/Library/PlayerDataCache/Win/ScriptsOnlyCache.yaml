@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - GridGenerator
     - HousingGoalController
     - LocateMouse
+    - MainMenu
     - MoveProperties
     - ObjColorShading
     - PedSafetyGoalController
@@ -18,26 +19,30 @@ ScriptsOnlyBuild:
     - UISpawn
     - UiController
     - tester
-    Unity.CollabProxy.Editor.dll:
-    - Unity.Cloud.Collaborate.UserInterface.CollaborateWindow
-    - Unity.Cloud.Collaborate.UserInterface.WindowCache
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/GameScene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -67,55 +72,55 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11856}
+      Script: {instanceID: 11816}
+    - Class: 114
+      Script: {instanceID: 11820}
+    - Class: 114
+      Script: {instanceID: 11824}
+    - Class: 114
+      Script: {instanceID: 11854}
     - Class: 114
       Script: {instanceID: 11942}
     - Class: 114
-      Script: {instanceID: 12042}
+      Script: {instanceID: 12070}
     - Class: 114
-      Script: {instanceID: 12066}
+      Script: {instanceID: 12362}
     - Class: 114
-      Script: {instanceID: 12084}
+      Script: {instanceID: 12466}
     - Class: 114
-      Script: {instanceID: 12336}
+      Script: {instanceID: 12540}
     - Class: 114
-      Script: {instanceID: 12436}
+      Script: {instanceID: 12576}
     - Class: 114
-      Script: {instanceID: 12512}
+      Script: {instanceID: 12592}
     - Class: 114
-      Script: {instanceID: 12544}
+      Script: {instanceID: 12670}
     - Class: 114
-      Script: {instanceID: 12560}
+      Script: {instanceID: 12938}
     - Class: 114
-      Script: {instanceID: 12632}
+      Script: {instanceID: 13230}
     - Class: 114
-      Script: {instanceID: 12836}
+      Script: {instanceID: 13278}
     - Class: 114
-      Script: {instanceID: 12880}
+      Script: {instanceID: 13446}
     - Class: 114
-      Script: {instanceID: 13020}
+      Script: {instanceID: 13576}
     - Class: 114
-      Script: {instanceID: 13204}
+      Script: {instanceID: 13662}
     - Class: 114
-      Script: {instanceID: 13362}
+      Script: {instanceID: 13678}
     - Class: 114
-      Script: {instanceID: 13484}
+      Script: {instanceID: 13816}
     - Class: 114
-      Script: {instanceID: 13564}
+      Script: {instanceID: 13900}
     - Class: 114
-      Script: {instanceID: 13580}
+      Script: {instanceID: 13926}
     - Class: 114
-      Script: {instanceID: 13714}
+      Script: {instanceID: 14064}
     - Class: 114
-      Script: {instanceID: 13794}
+      Script: {instanceID: 14106}
     - Class: 114
-      Script: {instanceID: 13818}
-    - Class: 114
-      Script: {instanceID: 13944}
-    - Class: 114
-      Script: {instanceID: 13982}
-    - Class: 114
-      Script: {instanceID: 14072}
+      Script: {instanceID: 14198}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -138,7 +143,311 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 850595691
       Script: {instanceID: 0}
+    Assets/Scenes/Instructions.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11816}
+    - Class: 114
+      Script: {instanceID: 11820}
+    - Class: 114
+      Script: {instanceID: 11824}
+    - Class: 114
+      Script: {instanceID: 11854}
+    - Class: 114
+      Script: {instanceID: 12576}
+    - Class: 114
+      Script: {instanceID: 13076}
+    - Class: 114
+      Script: {instanceID: 13110}
+    - Class: 114
+      Script: {instanceID: 13678}
+    - Class: 114
+      Script: {instanceID: 14106}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Instructions1.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11816}
+    - Class: 114
+      Script: {instanceID: 11820}
+    - Class: 114
+      Script: {instanceID: 11824}
+    - Class: 114
+      Script: {instanceID: 11854}
+    - Class: 114
+      Script: {instanceID: 12576}
+    - Class: 114
+      Script: {instanceID: 13076}
+    - Class: 114
+      Script: {instanceID: 13678}
+    - Class: 114
+      Script: {instanceID: 14056}
+    - Class: 114
+      Script: {instanceID: 14106}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Instructions2.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11816}
+    - Class: 114
+      Script: {instanceID: 11820}
+    - Class: 114
+      Script: {instanceID: 11824}
+    - Class: 114
+      Script: {instanceID: 11854}
+    - Class: 114
+      Script: {instanceID: 12576}
+    - Class: 114
+      Script: {instanceID: 13076}
+    - Class: 114
+      Script: {instanceID: 13110}
+    - Class: 114
+      Script: {instanceID: 13678}
+    - Class: 114
+      Script: {instanceID: 14056}
+    - Class: 114
+      Script: {instanceID: 14106}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/menu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11816}
+    - Class: 114
+      Script: {instanceID: 11820}
+    - Class: 114
+      Script: {instanceID: 11824}
+    - Class: 114
+      Script: {instanceID: 11854}
+    - Class: 114
+      Script: {instanceID: 12576}
+    - Class: 114
+      Script: {instanceID: 12614}
+    - Class: 114
+      Script: {instanceID: 13076}
+    - Class: 114
+      Script: {instanceID: 13110}
+    - Class: 114
+      Script: {instanceID: 13350}
+    - Class: 114
+      Script: {instanceID: 13366}
+    - Class: 114
+      Script: {instanceID: 13678}
+    - Class: 114
+      Script: {instanceID: 13864}
+    - Class: 114
+      Script: {instanceID: 14106}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: f087c23fbfa15475a0d110af46fb0496
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Button
+  - hash:
+      serializedVersion: 2
+      Hash: 0c05f2bfb402def3f0a85a62a2323c7f
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Slider
+  - hash:
+      serializedVersion: 2
+      Hash: 699619b86d9359741a4f58540298c80b
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
+  - hash:
+      serializedVersion: 2
+      Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: a6e561615949734e9f12f9b61661f43e
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: LayoutElement
+  - hash:
+      serializedVersion: 2
+      Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: ContentSizeFitter
+  - hash:
+      serializedVersion: 2
+      Hash: 0ffaf073d4b1fa4e8036cf7ad52ddba7
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Toggle
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -147,10 +456,28 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
+      Hash: 24180f09779d05db6580b94005d746db
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: DialogBox
+  - hash:
+      serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SelectionCaret
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: UICursor
+  - hash:
+      serializedVersion: 2
+      Hash: 51f8d470cac09a8e32d2d547963d8efc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: ResizePanel
   - hash:
       serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
@@ -169,6 +496,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StateManager
+  - hash:
+      serializedVersion: 2
+      Hash: cf09e7c99d8fea2bfe77802283d7ae4b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: Joystick
   - hash:
       serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
@@ -195,12 +528,6 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 699619b86d9359741a4f58540298c80b
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Text
-  - hash:
-      serializedVersion: 2
       Hash: fd8b23ad3c9e81bc85b197495bc510ac
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -225,10 +552,10 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: a6e561615949734e9f12f9b61661f43e
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Image
+      Hash: 62fcfb7597748a401f9b18f9bece6586
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: StringPairSlot
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -249,10 +576,22 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: ContentSizeFitter
+      Hash: 47ebbed8195db5052246fe69471b4d9e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DialogBoxTrigger
+  - hash:
+      serializedVersion: 2
+      Hash: 0cc9e24f39add8abc016acfa0dcb183e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: UIWidget
+  - hash:
+      serializedVersion: 2
+      Hash: 1deb9d2c666ac52f7677e7645ca6bc54
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ContextMenuTrigger
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -261,10 +600,10 @@ ScriptsOnlyBuild:
     className: SignalAsset
   - hash:
       serializedVersion: 2
-      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: LayoutElement
+      Hash: 443493e7a23a474196aefbe7fa7d97ea
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: Chat
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -273,16 +612,40 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames
+    className: DontDestroyOnLoad
+  - hash:
+      serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationTrack
   - hash:
       serializedVersion: 2
+      Hash: 5240a96722d1051c1cc1f535b353bf25
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: RadialMenu
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames
+    className: UtilityBehavior
+  - hash:
+      serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: AspectRatioFitter
+  - hash:
+      serializedVersion: 2
+      Hash: aa492e2de7f49c018baaf28d259fc268
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Cooldown
   - hash:
       serializedVersion: 2
       Hash: ef5c43f921427d03730f6ea4c848f07d
@@ -309,6 +672,12 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: WidgetInputHandler
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -321,10 +690,22 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
+      Hash: 50fbe59176f4e8ee91194fa9ce0e8a55
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames
+    className: LookAtMainCamera
+  - hash:
+      serializedVersion: 2
       Hash: ebc75947bd869f839af6fbc2f3c52b7e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpawnDraggable
+  - hash:
+      serializedVersion: 2
+      Hash: 09dda564137c004dfd8f0be4e08fc65f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames
+    className: PropertyBinding
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -363,10 +744,22 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: 8dc90e648ac06f43bdd31ac9fa8f4579
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: MenuItem
+  - hash:
+      serializedVersion: 2
       Hash: 01f9d0e78cf1ed371a4f0d9a4830a210
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScoreDisplayController
+  - hash:
+      serializedVersion: 2
+      Hash: c2dffdc41b982674705650e8fd388c7a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames
+    className: SaveUIComponent
   - hash:
       serializedVersion: 2
       Hash: 040dd48e3a027d5424519a5fa2009df4
@@ -381,10 +774,28 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 3d90d3fde1b692ce2ac26b6784807b00
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CameraMovement
+    namespaceName: DevionGames
+    className: EventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 84e5552fcddfaac18854bfc6820439fb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: Notification
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames
+    className: Settings
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: DragPanel
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -399,10 +810,22 @@ ScriptsOnlyBuild:
     className: FloodGoalController
   - hash:
       serializedVersion: 2
+      Hash: 87cad440537b42c9a8a233bc051c5bdf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: ContextMenu
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
+  - hash:
+      serializedVersion: 2
+      Hash: 56f44610dda59971e8113507dcd2b106
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: Progressbar
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -411,10 +834,10 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: f087c23fbfa15475a0d110af46fb0496
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Button
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainMenu
   - hash:
       serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
@@ -423,10 +846,10 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: VerticalLayoutGroup
+      Hash: 3d90d3fde1b692ce2ac26b6784807b00
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraMovement
   - hash:
       serializedVersion: 2
       Hash: 409ee4f2b35a2865a764582057c599ec
@@ -445,6 +868,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalReceiver
+  - hash:
+      serializedVersion: 2
+      Hash: f606699f56c2d888dfa86d6da3505ba9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: NotificationSlot
   - hash:
       serializedVersion: 2
       Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
@@ -489,6 +918,24 @@ ScriptsOnlyBuild:
     className: LocateMouse
   - hash:
       serializedVersion: 2
+      Hash: 1c548dce2f58b90f7887da6aca349553
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: Tooltip
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames
+    className: CoroutineHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 578b10a81395dc399329a8005e49da03
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames
+    className: SelectionHandler
+  - hash:
+      serializedVersion: 2
       Hash: db0399d81918fc64a5e8541a0d900016
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -507,7 +954,7 @@ ScriptsOnlyBuild:
     className: AudioTrack
   - hash:
       serializedVersion: 2
-      Hash: 81992d2c9dca39c280214fc1657c7851
+      Hash: 6bb1f6aca0e5436e409bc847a43dfc79
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Draggable
@@ -525,10 +972,22 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: 5bef3f159933c39b48d72cd66c34f1c4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NotificationTrigger
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraRotator
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MouseHover
   - hash:
       serializedVersion: 2
       Hash: e354fd4d381efd5d489c3b439b55ee33
@@ -573,6 +1032,18 @@ ScriptsOnlyBuild:
     className: TMP_ColorGradient
   - hash:
       serializedVersion: 2
+      Hash: cdfddc7584661699b40bf53db931093d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames
+    className: SelectableObject
+  - hash:
+      serializedVersion: 2
+      Hash: cba7e9b6f9b92db2dd79a79ed487d922
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RadialMenuTrigger
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -583,6 +1054,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: c369163c47b2800e3d1f5f75c4ec689c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: TooltipTrigger
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -609,6 +1086,12 @@ ScriptsOnlyBuild:
     className: ObjColorShading
   - hash:
       serializedVersion: 2
+      Hash: 5d84186fd7be9c40e529fa4eda56e746
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: Spinner
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestRunner.Utils
@@ -633,22 +1116,16 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
-      Hash: 0ffaf073d4b1fa4e8036cf7ad52ddba7
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Toggle
-  - hash:
-      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 0c05f2bfb402def3f0a85a62a2323c7f
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Slider
+      Hash: 2c90c724348dd0bced1a274dbfc24fe1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DevionGames.UIWidgets
+    className: Tab
   - hash:
       serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
@@ -669,5 +1146,9 @@ ScriptsOnlyBuild:
     className: UiController
   platform: 5
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
+  - Assets/Scenes/menu.unity
+  - Assets/Scenes/Instructions.unity
+  - Assets/Scenes/Instructions2.unity
+  - Assets/Scenes/Instructions1.unity
+  - Assets/Scenes/GameScene.unity
   playerPath: C:/Users/black/Desktop/BYN_Game_Build/PC Build/Temp3D_BYN_Project.exe

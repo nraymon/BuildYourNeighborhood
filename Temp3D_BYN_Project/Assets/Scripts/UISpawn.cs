@@ -51,7 +51,7 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
 
             Vector3 newPos = rot * pos;
 
-            Debug.Log("viewport thing: " + Camera.main.ViewportToWorldPoint(state.wetlandPos.transform.position));
+            //Debug.Log("viewport thing: " + Camera.main.ViewportToWorldPoint(state.wetlandPos.transform.position));
             
             //rot.z -= 1;
             //Debug.Log("Wetlands pos: " + state.wetlandPos.transform.position);
@@ -70,11 +70,11 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
 
             //Debug.Log("lol: " + this.transform.position);
 
-            Vector3 p = Camera.main.ViewportToWorldPoint(state.bioswalePos.transform.position);
-            p.x = pos.x;
-            p.z = pos.z;
+            //Vector3 p = Camera.main.ViewportToWorldPoint(state.bioswalePos.transform.position);
+            //p.x = pos.x;
+            //p.z = pos.z;
 
-            Debug.Log("viewport thing: " + Camera.main.ViewportToWorldPoint(state.bioswalePos.transform.position));
+            //Debug.Log("viewport thing: " + Camera.main.ViewportToWorldPoint(state.bioswalePos.transform.position));
 
             //rot.y += 1;
             //Debug.Log("Bioswale pos: " + pos.ToString());
@@ -91,10 +91,10 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
             pos.z += 5f;
             Quaternion rot = Quaternion.identity;
 
-            Debug.Log("lol: " + this.transform.position);
+            //Debug.Log("lol: " + this.transform.position);
 
             //rot.y -= 1;
-            Debug.Log("House pos: " + pos.ToString());
+            //Debug.Log("House pos: " + pos.ToString());
             //temp = Instantiate(tVal.GetHouse(), pos, tVal.GetHouse().transform.rotation);
             temp = Instantiate(tVal.GetHouse(), state.mainSpawn.transform.position, tVal.GetHouse().transform.rotation);
         }
@@ -108,10 +108,10 @@ public class UISpawn : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
             pos.z += 5f;
             Quaternion rot = Quaternion.identity;
 
-            Debug.Log("lol: " + this.transform.position);
+            //Debug.Log("lol: " + this.transform.position);
 
             //rot.z -= 1;
-            Debug.Log("Road pos: " + pos.ToString());
+            //Debug.Log("Road pos: " + pos.ToString());
             //temp = Instantiate(tVal.GetRoad(), pos, tVal.GetRoad().transform.rotation);
             temp = Instantiate(tVal.GetRoad(), state.mainSpawn.transform.position, tVal.GetRoad().transform.rotation);
         }
