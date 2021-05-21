@@ -78,11 +78,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11824}
     - Class: 114
-      Script: {instanceID: 11854}
+      Script: {instanceID: 11852}
     - Class: 114
-      Script: {instanceID: 11942}
+      Script: {instanceID: 11940}
     - Class: 114
-      Script: {instanceID: 12070}
+      Script: {instanceID: 12068}
     - Class: 114
       Script: {instanceID: 12362}
     - Class: 114
@@ -177,7 +177,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11824}
     - Class: 114
-      Script: {instanceID: 11854}
+      Script: {instanceID: 11852}
     - Class: 114
       Script: {instanceID: 12576}
     - Class: 114
@@ -238,11 +238,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11824}
     - Class: 114
-      Script: {instanceID: 11854}
+      Script: {instanceID: 11852}
     - Class: 114
       Script: {instanceID: 12576}
     - Class: 114
       Script: {instanceID: 13076}
+    - Class: 114
+      Script: {instanceID: 13110}
     - Class: 114
       Script: {instanceID: 13678}
     - Class: 114
@@ -299,7 +301,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11824}
     - Class: 114
-      Script: {instanceID: 11854}
+      Script: {instanceID: 11852}
     - Class: 114
       Script: {instanceID: 12576}
     - Class: 114
@@ -364,7 +366,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11824}
     - Class: 114
-      Script: {instanceID: 11854}
+      Script: {instanceID: 11852}
     - Class: 114
       Script: {instanceID: 12576}
     - Class: 114
@@ -430,12 +432,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
-  - hash:
-      serializedVersion: 2
-      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: LayoutElement
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -604,6 +600,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: DevionGames.UIWidgets
     className: Chat
+  - hash:
+      serializedVersion: 2
+      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: LayoutElement
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -1151,4 +1153,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Instructions2.unity
   - Assets/Scenes/Instructions1.unity
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/black/Desktop/BYN_Mobile_Game_Build/BYN_Mobile_Game_Build.apk
+  playerPath: C:/Users/black/Documents/GitHub/BuildYourNeighborhood/Android Build/BYN_Mobile_Game_Build.apk
