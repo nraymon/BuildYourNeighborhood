@@ -33,6 +33,10 @@ public class Draggable : MonoBehaviour
 
     TileValues tileValues;
 
+    Draggable script;
+
+    public int transparancy;
+
     public bool stay = false;
 
     public TileValues.TileType thisType;
@@ -46,6 +50,7 @@ public class Draggable : MonoBehaviour
         click = GameObject.Find("GameManager").GetComponent<LocateMouse>();
         color = GameObject.Find("GameManager").GetComponent<ObjColorShading>();
         tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
+        script = this.gameObject.GetComponent<Draggable>();
 
         // will destoy this object after 10 seconds if not clicked on
         Invoke("DestroyMe", 2.0f);
@@ -136,6 +141,7 @@ public class Draggable : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && obj && gridObj)
         {
             tileValues.PrintValues();
+            obj.GetComponent<AudioSource>().Play();
 
             // setting up the move element to be placed on the moves Stack in StateManager
             move.gameObj = obj;
@@ -177,7 +183,7 @@ public class Draggable : MonoBehaviour
             state.SetSpawn(true);
             gridObj = null;
 
-            this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
+            this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, script.transparancy));
             obj = null;
 
             //TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
@@ -241,7 +247,7 @@ public class Draggable : MonoBehaviour
                 state.SetSpawn(true);
                 gridObj = null;
 
-                this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
+                this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, script.transparancy));
                 obj = null;
             }
             else
