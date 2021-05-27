@@ -4022,13 +4022,13 @@ MonoBehaviour:
   type: 1
   beauty: 0
   temperature: 0
-  RoadSpawn: {fileID: 7170052123964468589, guid: 9d28f9190bfca764f872d4c93f1d716c,
+  RoadSpawn: {fileID: 7543308216767234218, guid: 0c1c218e697daf443a172175777df8e8,
     type: 3}
-  BioSpawn: {fileID: 1734118849753842467, guid: dd8439ef72d41654b893cc0fec8b3f9e,
+  BioSpawn: {fileID: 1721787441255764587, guid: e3ceba3f71f9da0478b327790038c9c5,
     type: 3}
   WetSpawn: {fileID: 2153248234307525903, guid: 46831e43e3c3fcc4f855c8b795bea060,
     type: 3}
-  HouSpawn: {fileID: 3474002795825597246, guid: 07f945cbc484d06419b3425d3b9656cd,
+  HouSpawn: {fileID: 6751247203948257638, guid: 94cb89153a83b704ba97a45e434481fa,
     type: 3}
 --- !u!1 &963194225
 GameObject:
@@ -4041,6 +4041,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4118,6 +4119,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 23.196, y: 46.47, z: 1.772}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbd11994d361cb418bc46dfa96b6d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 963194227}
+  target: {fileID: 429682757}
+  distanceToTarget: 10
+  maxRotationInOneSwipe: 180
 --- !u!1 &1052337171
 GameObject:
   m_ObjectHideFlags: 0
@@ -5590,14 +5607,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433748111}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e428294754677454a87fb5a29df0b802, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cbd11994d361cb418bc46dfa96b6d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 963194227}
-  target: {fileID: 429682757}
-  distanceToTarget: 16.1
+  target: {fileID: 1433748113}
+  distanceToTarget: 0.01
   maxRotationInOneSwipe: 180
 --- !u!4 &1433748113
 Transform:
