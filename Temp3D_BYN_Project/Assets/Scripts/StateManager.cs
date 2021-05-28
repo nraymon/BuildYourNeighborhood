@@ -32,6 +32,7 @@ public class StateManager : MonoBehaviour
     // scoring 
     public Scoring scoreCalculator;                         // object used to calculate score based on tile arrangement on grid
     public Scoreholder totalScore;                          // object used to store total scores/descriptions for each of the 3 goals
+    public List<Scoreholder> scoreList;                     // list that stores up to 4 adjacent interactions of most recently placed tile 
 
     public GameObject scoreDisplay;                         // gameObject UI that displays the score
     public ScoreDisplayController scoreDisplayController;   // script used to control score UI
@@ -43,12 +44,13 @@ public class StateManager : MonoBehaviour
     public GameObject pedSafetyGoal;                        // gameObject UI that displays the pedestrian safety goal progress 
     public PedSafetyGoalController pedSafetyGoalController; // script used to control pedestrian safety goal
 
+    public GameObject canvas;                               // gameObject that contains all UI elements
+    public ScorePanelManager scorePanelManager;             // script used to control the scorepanel visibility and content
+    
     public 
 
     void Start()
-    {
-        //gridPositions = new float[5, 5] { { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f }, { 0f, 0f, 0f, 0f, 0f } };
-        
+    {        
         // initiate grid with empty tile values
         gridTiles = new TileValues.TileType[5, 5];
         TileValues noneTileValues = new TileValues();               // "none" type means no tile is present at this location of the grid
@@ -63,7 +65,7 @@ public class StateManager : MonoBehaviour
         // scoring class used for calculating score and block interaction
         scoreCalculator = new Scoring();
 
-        // find all scoring UI gameobjects in the game hierarchy and access their scripts 
+        // find all UI gameobjects in the game hierarchy and access their scripts 
         scoreDisplay = GameObject.Find("Canvas/Score");                                 // find the score display gameobject
         scoreDisplayController = scoreDisplay.GetComponent<ScoreDisplayController>();   // access scoreDisplayController script
 
@@ -73,6 +75,9 @@ public class StateManager : MonoBehaviour
         housingGoalController = housingGoal.GetComponent<HousingGoalController>();      // access the housing goal controller script 
         pedSafetyGoal = GameObject.Find("Canvas/Goals/PedSafety Progress Bar");         // find the pedSafety goal gameobject
         pedSafetyGoalController = pedSafetyGoal.GetComponent<PedSafetyGoalController>();// access the pedSafety goal controller script 
+        
+        canvas = GameObject.Find("Canvas");                                             // find the canvas gameobject
+        scorePanelManager = canvas.GetComponent<ScorePanelManager>();                   // access the scorepanelmanager script attached to canvas
     }
 
 
@@ -92,8 +97,6 @@ public class StateManager : MonoBehaviour
     // allows for adding an element to a data structure without changed other code
     public void AddElement(MoveProperties move, string placement, TileValues.TileType tileValues)
     {
-        Debug.Log("AddElement TileValues: ");
-
         // get location of tile placement on the grid
         int col = (int)Char.GetNumericValue(placement[0]);
         int row = (int)Char.GetNumericValue(placement[2]);
@@ -107,6 +110,18 @@ public class StateManager : MonoBehaviour
         floodGoalController.updateScore(totalScore);        // update flood goal UI
         housingGoalController.updateScore(totalScore);      // update housing/quality of life goal UI
         pedSafetyGoalController.updateScore(totalScore);    // update ped safety goal UI
+
+        // get list of interactions between most recently placed tile and adjacent blocks 
+        scoreList = scoreCalculator.GetCurrentTileScores(gridTiles, col, row);
+        if (scoreList.Count() > 0)
+        {
+            Debug.Log("Begin list");
+            foreach (Scoreholder score in scoreList)
+            {
+                Debug.Log("Interaction: " + score.tileOne.ToString() + ", " + score.tileTwo.ToString());
+            }
+            Debug.Log("End list");
+        }
     }
 
     public void snap(string gridSpot)
@@ -158,6 +173,19 @@ public class StateManager : MonoBehaviour
         floodGoalController.updateScore(totalScore);        // update flood goal UI
         housingGoalController.updateScore(totalScore);      // update housing/quality of life goal UI
         pedSafetyGoalController.updateScore(totalScore);    // update ped safety goal UI
+
+        // get list of interactions between most recently placed tile and adjacent blocks
+        scoreList = scoreCalculator.GetCurrentTileScores(gridTiles, col, row);
+        if (scoreList.Count() > 0)
+        {
+            Debug.Log("Begin list");
+            foreach (Scoreholder score in scoreList)
+            {
+                Debug.Log("Interaction: " + score.tileOne.ToString() + ", " + score.tileTwo.ToString());
+            }
+            Debug.Log("End list");
+        }
+
     }
 
     public bool GetSpawn()
