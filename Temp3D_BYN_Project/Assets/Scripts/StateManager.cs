@@ -122,6 +122,12 @@ public class StateManager : MonoBehaviour
             }
             Debug.Log("End list");
         }
+
+        // send most recently placed tile interactions to the scorepanel
+        if (scoreList.Count() > 0)
+        {
+            scorePanelManager.UpdateScorePanel(scoreList);
+        }
     }
 
     public void snap(string gridSpot)
@@ -186,6 +192,11 @@ public class StateManager : MonoBehaviour
             Debug.Log("End list");
         }
 
+        // send most recently placed tile interactions to the scorepanel
+        if (scoreList.Count() > 0)
+        {
+            scorePanelManager.UpdateScorePanel(scoreList);
+        }
     }
 
     public bool GetSpawn()

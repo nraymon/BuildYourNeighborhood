@@ -18,7 +18,6 @@ public class ScorePanelManager : MonoBehaviour
     public Transform scoreContainer;            // used to manipulate the scorepanel text container
     public Transform scoreTemplate;             // used to manipulate the score text template 
 
-    public List<Scoreholder> scoreholderList;   // list of unformatted scores 
     public List<ScoreEntry> scoreEntryList;     // list of score entries to be displayed in the scorepanel
     public List<Transform> scoreEntryTransformList;
 
@@ -27,6 +26,15 @@ public class ScorePanelManager : MonoBehaviour
     {
         OpenScorePanelButton.onClick.AddListener(OpenScorePanel);
         CloseScorePanelButton.onClick.AddListener(CloseScorePanel);
+
+        scoreEntryList = new List<ScoreEntry>();
+
+        // get references to the score panel and entry templates
+        scoreContainer = transform.Find("ScorePanel/ScorePanelScrollable/ScorePanelEntryContainer");
+        scoreTemplate = transform.Find("ScorePanel/ScorePanelScrollable/ScorePanelEntryContainer/ScorePanelEntryTemplate");
+
+        //hide default score template 
+        scoreTemplate.gameObject.SetActive(false);
     }
 
 
@@ -51,36 +59,45 @@ public class ScorePanelManager : MonoBehaviour
     // This function constantly listens to changes to the scorepanel while the game is running 
     public void Awake()
     {
-        // get references to the score panel and entry templates
-        scoreContainer = transform.Find("ScorePanel/ScorePanelScrollable/ScorePanelEntryContainer");
-        scoreTemplate = transform.Find("ScorePanel/ScorePanelScrollable/ScorePanelEntryContainer/ScorePanelEntryTemplate");
-
-        //hide default score template 
-        scoreTemplate.gameObject.SetActive(false);
-
-        scoreEntryList = new List<ScoreEntry>()
-        {
-            new ScoreEntry{ points = "11", interaction = "bioswale +\nroad", goal = "flood", description = "Mitigation efforts: to control runoff created from development. Mitigation efforts: to control runoff created from development."},
-            new ScoreEntry{ points = "12", interaction = "house +\nroad", goal = "flood", description = "Mitigation efforts: to control runoff created from development."},
-            new ScoreEntry{ points = "13", interaction = "wetland +\nroad", goal = "flood", description = "Mitigation efforts: to control runoff created from development."},
-            new ScoreEntry{ points = "14", interaction = "road +\nroad", goal = "flood", description = "Mitigation efforts: to control runoff created from development."},
-            new ScoreEntry{ points = "15", interaction = "bioswale +\nhouse", goal = "flood", description = "Mitigation efforts: to control runoff created from development."},
-            new ScoreEntry{ points = "16", interaction = "bioswale +\nwetland", goal = "flood", description = "Mitigation efforts: to control runoff created from development."},
-            new ScoreEntry{ points = "17", interaction = "bioswale +\nhouse", goal = "flood", description = "Mitigation efforts: to control runoff created from development."},
-            new ScoreEntry{ points = "18", interaction = "bioswale +\nbioswale", goal = "flood", description = "Mitigation efforts: to control runoff created from development."},
-            new ScoreEntry{ points = "19", interaction = "bioswale +\nroad", goal = "flood", description = "Mitigation efforts: to control runoff created from development."}
-        };
-        scoreEntryTransformList = new List<Transform>();
-        foreach (ScoreEntry scoreEntry in scoreEntryList)
-        {
-            CreateScoreEntryTransform(scoreEntry, scoreContainer, scoreEntryTransformList);
-        }
+        
     }
 
 
     public void UpdateScorePanel(List<Scoreholder> scoreHolderList)
     {
-        Debug.Log("updating scorepanel!");
+        // split each scoreholder object into three entries in the scorepanel
+        foreach (Scoreholder scoreHolder in scoreHolderList)
+        {
+            ScoreEntry floodEntry = new ScoreEntry();
+            floodEntry.points = scoreHolder.floodPts.ToString();
+            floodEntry.description = scoreHolder.floodDesc;
+            floodEntry.goal = "Flood";
+            floodEntry.interaction = scoreHolder.tileOne + ",\n" + scoreHolder.tileTwo;
+
+            ScoreEntry pedSafetyEntry = new ScoreEntry();
+            pedSafetyEntry.points = scoreHolder.pedSafetyPts.ToString();
+            pedSafetyEntry.description = scoreHolder.pedSafetyDesc;
+            pedSafetyEntry.goal = "Pedestrian\nSafety";
+            pedSafetyEntry.interaction = scoreHolder.tileOne + ",\n" + scoreHolder.tileTwo;
+
+            ScoreEntry qualLifeEntry = new ScoreEntry();
+            qualLifeEntry.points = scoreHolder.qualLifePts.ToString();
+            qualLifeEntry.description = scoreHolder.qualLifeDesc;
+            qualLifeEntry.goal = "Housing &\nQual of Life";
+            qualLifeEntry.interaction = scoreHolder.tileOne + ",\n" + scoreHolder.tileTwo;
+
+            // add the new score entry objects to the score entry list
+            scoreEntryList.Add(floodEntry);
+            scoreEntryList.Add(pedSafetyEntry);
+            scoreEntryList.Add(qualLifeEntry);
+        }
+
+        // put the score entries into template holders in the scorepanel
+        scoreEntryTransformList = new List<Transform>();
+        foreach (ScoreEntry scoreEntry in scoreEntryList)
+        {
+            CreateScoreEntryTransform(scoreEntry, scoreContainer, scoreEntryTransformList);
+        }
     }
 
 
