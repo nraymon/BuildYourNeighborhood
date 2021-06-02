@@ -4508,7 +4508,7 @@ MonoBehaviour:
     type: 3}
   BioSpawn: {fileID: 1721787441255764587, guid: e3ceba3f71f9da0478b327790038c9c5,
     type: 3}
-  WetSpawn: {fileID: 2153248234307525903, guid: b44497f5b377f394ab1c85134ea0f4be,
+  WetSpawn: {fileID: 6977666779433213936, guid: 9e772b7fd6a87a644b97a572a446f3ff,
     type: 3}
   HouSpawn: {fileID: 6751247203948257638, guid: 94cb89153a83b704ba97a45e434481fa,
     type: 3}
