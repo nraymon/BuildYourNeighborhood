@@ -33,7 +33,13 @@ public class Draggable : MonoBehaviour
 
     TileValues tileValues;
 
+    Draggable script;
+
+    public int transparancy;
+
     public bool stay = false;
+
+    AudioSource source;
 
     public TileValues.TileType thisType;
 
@@ -46,6 +52,7 @@ public class Draggable : MonoBehaviour
         click = GameObject.Find("GameManager").GetComponent<LocateMouse>();
         color = GameObject.Find("GameManager").GetComponent<ObjColorShading>();
         tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
+        script = this.gameObject.GetComponent<Draggable>();
 
         // will destoy this object after 10 seconds if not clicked on
         Invoke("DestroyMe", 2.0f);
@@ -56,6 +63,8 @@ public class Draggable : MonoBehaviour
 
     private void Update()
     {
+
+        //Debug.Log("alpha: " + this.alpha);
 
         if (stay == false)
         {
@@ -135,6 +144,7 @@ public class Draggable : MonoBehaviour
         // "pile." Both object are set to null and the color is returned to drag object.
         if (Input.GetMouseButtonUp(0) && obj && gridObj)
         {
+            obj.GetComponent<AudioSource>().Play();
             tileValues.PrintValues();
 
             // setting up the move element to be placed on the moves Stack in StateManager
@@ -177,7 +187,7 @@ public class Draggable : MonoBehaviour
             state.SetSpawn(true);
             gridObj = null;
 
-            this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
+            this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, script.transparancy));
             obj = null;
 
             //TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
@@ -241,7 +251,7 @@ public class Draggable : MonoBehaviour
                 state.SetSpawn(true);
                 gridObj = null;
 
-                this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, 255));
+                this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, script.transparancy));
                 obj = null;
             }
             else
