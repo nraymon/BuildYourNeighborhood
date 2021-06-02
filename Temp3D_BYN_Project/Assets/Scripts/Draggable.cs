@@ -34,9 +34,13 @@ public class Draggable : MonoBehaviour
     TileValues tileValues;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     Draggable script;
 
     public int transparancy;
+=======
+    public int alpha;
+>>>>>>> Stashed changes
 =======
     public int alpha;
 >>>>>>> Stashed changes
@@ -193,7 +197,11 @@ public class Draggable : MonoBehaviour
             gridObj = null;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, script.transparancy));
+=======
+            this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, this.alpha));
+>>>>>>> Stashed changes
 =======
             this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, this.alpha));
 >>>>>>> Stashed changes
@@ -260,8 +268,12 @@ public class Draggable : MonoBehaviour
                 state.SetSpawn(true);
                 gridObj = null;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
                 this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, script.transparancy));
+=======
+                this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, this.alpha));
+>>>>>>> Stashed changes
 =======
                 this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, this.alpha));
 >>>>>>> Stashed changes
