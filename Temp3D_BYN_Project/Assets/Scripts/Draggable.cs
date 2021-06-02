@@ -163,12 +163,8 @@ public class Draggable : MonoBehaviour
             obj.transform.position = gridObj.transform.position;
             //Debug.Log(obj.transform.position);
             obj.transform.position += new Vector3(0, .5f, 0);
-
-            if (obj.name.Substring(0, 7) == "Wetland")
-            {
-                obj.transform.position += new Vector3(-.2f, .2f, 0);
-            }
-            else if (obj.name.Substring(0, 8) == "Bioswale")
+            
+            if (obj.name.Substring(0, 8) == "Bioswale")
             {
                 obj.transform.position += new Vector3(0, -.02f, 0);
             }

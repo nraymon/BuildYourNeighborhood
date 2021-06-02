@@ -13,11 +13,11 @@ public class DetectUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     void Start()
     {
         state = GameObject.Find("GameManager").GetComponent<StateManager>();
-        if (this.name == "Settings")
-        {
-            this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.width * .5f);
-            this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.height * .75f);
-        }
+        //if (this.name == "Settings")
+        //{
+        //    this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.width * .5f);
+        //    this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.height * .75f);
+        //}
 
     }
 
