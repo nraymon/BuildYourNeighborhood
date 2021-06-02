@@ -33,11 +33,17 @@ public class Draggable : MonoBehaviour
 
     TileValues tileValues;
 
+<<<<<<< Updated upstream
     Draggable script;
 
     public int transparancy;
+=======
+    public int alpha;
+>>>>>>> Stashed changes
 
     public bool stay = false;
+
+    AudioSource source;
 
     public TileValues.TileType thisType;
 
@@ -61,6 +67,8 @@ public class Draggable : MonoBehaviour
 
     private void Update()
     {
+
+        //Debug.Log("alpha: " + this.alpha);
 
         if (stay == false)
         {
@@ -140,6 +148,7 @@ public class Draggable : MonoBehaviour
         // "pile." Both object are set to null and the color is returned to drag object.
         if (Input.GetMouseButtonUp(0) && obj && gridObj)
         {
+            obj.GetComponent<AudioSource>().Play();
             tileValues.PrintValues();
             obj.GetComponent<AudioSource>().Play();
 
@@ -183,7 +192,11 @@ public class Draggable : MonoBehaviour
             state.SetSpawn(true);
             gridObj = null;
 
+<<<<<<< Updated upstream
             this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, script.transparancy));
+=======
+            this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, this.alpha));
+>>>>>>> Stashed changes
             obj = null;
 
             //TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
@@ -246,8 +259,12 @@ public class Draggable : MonoBehaviour
                 this.gameObject.GetComponent<SpawnDraggable>().setGridObj(gridObj);
                 state.SetSpawn(true);
                 gridObj = null;
+<<<<<<< Updated upstream
 
                 this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, script.transparancy));
+=======
+                this.GetComponent<Renderer>().material.SetColor("_Color", color.ChangeObjShading(obj, 255, 255, 255, this.alpha));
+>>>>>>> Stashed changes
                 obj = null;
             }
             else
