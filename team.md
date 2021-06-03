@@ -15,13 +15,13 @@ Nathan Raymon is a senior computer science student at Oregon State University wi
 April James is a Computer Science and Fine Arts student at Oregon State University with interests in web dev and design. She contributed to visual design, asset development, and scoring implementation. While not coding, she likes to rock climb, dance, drink boba, make art, and run a little online art shop. 
 
 ## Jacob Lagmay
-Senior Computer Science student at Oregon State University.
+Jacob Lagmay is a senior at Oregon State University studying Computer Science with a focus in Human-Computer Interaction with a Psychology minor. Some of Jacob’s contributions toward this project include UI development, Usability, and Visual Design. You can find him either listening to music, taking photos, or traveling somewhere on a whim in his free time.
 
 ## Lindy Voss
 Senior Computer Science student at Oregon State University.
 
 ## Garrett Whitehurst
-Senior Computer Science student at Oregon State University.
+Garrett Whitehurst is senior computer science student focusing on simulation and game programming at Oregon State University. He worked on the design of game systems and back end systems meant to assist data collection for the survey aspect. When taking a break from school, he likes to mod video games, watch movies and shows with friends, and run game sessions of Dungeons & Dragons.
 
 ## Fatima Taha- Project Partner
 ![fatima](assets/FatimaTaha.jpeg)
