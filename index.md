@@ -1,7 +1,16 @@
+---
+layout: default
+title: Home
+description: Build Your Neighborhood mobile game homepage.
+---
+
+[Home](./)      /       [Meet The Team](./team.html)        /       [Archive](./archive.html)
+
 ### Home
 
-[Home](./team.html) / [Meet The Team](./team.html) / [Archive](./team.html)
 
+
+![Game Screenshot](assets/tilesOnGrid.PNG)
 
 
 ## Overview
