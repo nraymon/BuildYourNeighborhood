@@ -52,47 +52,53 @@ public class SpawnDraggable : MonoBehaviour
             if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Draggable")) && state.GetSpawn())
             {
 
-                if (hit.collider.name == "RoadSpawner" || hit.collider.name.Substring(0, 4) == "Road")
+                if ((hit.collider.name == "RoadSpawner" || hit.collider.name.Substring(0, 4) == "Road") && state.GetSpawn())
                 {
                     temp = Instantiate(tVal.GetRoad());
+                    temp.GetComponent<Draggable>().stay = true;
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
+                        state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
                         state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
                         hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
                         StartCoroutine(hold(hit));
                     }
                 }
-                if (hit.collider.name == "HouseSpawner" || hit.collider.name.Substring(0, 5) == "House")
+                if ((hit.collider.name == "HouseSpawner" || hit.collider.name.Substring(0, 5) == "House") && state.GetSpawn())
                 {
                     temp = Instantiate(tVal.GetHouse());
+                    temp.GetComponent<Draggable>().stay = true;
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
+                        state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
                         state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
                         hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
                         StartCoroutine(hold(hit));
                     }
                 }
-                if (hit.collider.name == "WetSpawner" || hit.collider.name.Substring(0, 7) == "Wetland")
+                if ((hit.collider.name == "WetSpawner" || hit.collider.name.Substring(0, 7) == "Wetland") && state.GetSpawn())
                 {
-                    
                     temp = Instantiate(tVal.GetWet());
+                    temp.GetComponent<Draggable>().stay = true;
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
+                        state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
                         state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
-                        //temp.GetComponent<Draggable>().gridObj = hit.collider.GetComponent<SpawnDraggable>().gridObj;
                         hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
                         StartCoroutine(hold(hit));
                     }
                 }
-                if (hit.collider.name == "BioSpawner" || hit.collider.name.Substring(0, 8) == "Bioswale")
+                if ((hit.collider.name == "BioSpawner" || hit.collider.name.Substring(0, 8) == "Bioswale") && state.GetSpawn())
                 {
                     temp = Instantiate(tVal.GetBio());
+                    temp.GetComponent<Draggable>().stay = true;
 
                     if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
                     {
+                        state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
                         state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
                         hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
                         StartCoroutine(hold(hit));
@@ -110,11 +116,11 @@ public class SpawnDraggable : MonoBehaviour
                 //tileValues.beauty = 1.5f;
                 //tileValues.temperature = 2.0f;
 
-                tileValues.AssignValues(num, tileType);
+                /*tileValues.AssignValues(num, tileType);*/ // this line seems to cause tiles to default to "road" upon SnapBack
             }
         }
 
-            
+
     }
 
     IEnumerator hold(RaycastHit hit)
