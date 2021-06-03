@@ -24,3 +24,10 @@ The game is developed using Unity as the game engine. The game scripts are writt
 
 ## Purpose
 
+
+## Demo Video
+
+[![Youtube Demo Video](/assets/youtube-thumbnail.PNG)](https://youtu.be/-osSZN27eYk "Gameplay Demo Video")
+
+This demo video shows a walkthrough of the Build Your Neighborhood game. Our team member, Nathan, walks through a demo of menu navigation and some key gameplay elements. 
+
