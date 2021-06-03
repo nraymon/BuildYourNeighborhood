@@ -5,7 +5,7 @@ description: Meet the members of the team.
 ---
 [Home](./)      /       [Meet The Team](./team.html)        /       [Archive](./archive.html)
 
-### Meet The Team
+# Meet The Team
 
 ## Nathan Raymon
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

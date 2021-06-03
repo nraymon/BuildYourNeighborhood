@@ -6,12 +6,12 @@ description: Build Your Neighborhood mobile game homepage.
 
 [Home](./)      /       [Meet The Team](./team.html)        /       [Archive](./archive.html)
 
-### Home
+# Home
 
 
 
 ![Game Screenshot](assets/tilesOnGrid.PNG)
-
+##### Figure 1: Screenshot of the game UI.
 
 ## Overview
 
@@ -22,30 +22,5 @@ Our project partner is Fatima Taha, a Geology PHD candidate at Oregon State. Her
 The game is developed using Unity as the game engine. The game scripts are written in C#, and are used to control the mechanics of the game, such as dragging tiles, rotating the screen, and calculating score. The UI is created through Unity's UI features, the skybox is designed in Adobe Illustrator, and the tile assets are sculpted in Blender.
 
 
-```markdown
-Syntax highlighted code block
+## Purpose
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/nraymon/BuildYourNeighborhood/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
