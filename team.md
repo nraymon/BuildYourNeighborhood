@@ -9,7 +9,7 @@ description: Meet the members of the team.
 
 
 ## Nathan Raymon
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Nathan Raymon is a senior computer science student at Oregon Statue University with a focus on simulation and game programming. For this project, Nathan worked on the gameplay mechanics of picking a block, being able to drag that block to the grid, placing it on the grid, and picking a tile up to drag it to the trash. Outside of class Nathan enjoys working out, keeping up with the latest tech, and playing video games.
 
 ## April James
 ![april](assets/april.jpg | width=100)
