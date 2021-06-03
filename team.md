@@ -12,7 +12,6 @@ description: Meet the members of the team.
 Nathan Raymon is a senior computer science student at Oregon Statue University with a focus on simulation and game programming. For this project, Nathan worked on the gameplay mechanics of picking a block, being able to drag that block to the grid, placing it on the grid, and picking a tile up to drag it to the trash. Outside of class Nathan enjoys working out, keeping up with the latest tech, and playing video games.
 
 ## April James
-![april](assets/april.jpg | width=100)
 April James is Computer Science and Fine Arts student with interests in web dev and design. She contributed to visual design, asset development, and scoring implementation. While not coding, she likes to rock climb, dance, drink boba, make art, and run a little online art shop. 
 
 ## Jacob Lagmay
