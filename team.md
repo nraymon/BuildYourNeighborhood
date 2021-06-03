@@ -12,7 +12,7 @@ description: Meet the members of the team.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 ## April James
-<img src="april.jpg" alt="april headshot" width="500"/>
+![april](assets/april.jpg)
 April James is Computer Science and Fine Arts student with interests in web dev and design. She contributed to visual design, asset development, and scoring implementation. While not coding, she likes to rock climb, dance, drink boba, make art, and run a little online art shop. 
 
 ## Jacob Lagmay
