@@ -27,7 +27,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridObj: {fileID: 0}
   stay: 0
-  thisType: 0
+  thisType: 1
 --- !u!1001 &5868285276494912567
 PrefabInstance:
   m_ObjectHideFlags: 0

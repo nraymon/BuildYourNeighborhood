@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Scoreholder
 {
+    public TileValues.TileType tileOne;
+    public TileValues.TileType tileTwo;
+
     public float floodPts;
     public float pedSafetyPts;
     public float qualLifePts;
@@ -14,6 +17,9 @@ public class Scoreholder
 
     public Scoreholder()
     {
+        tileOne = TileValues.TileType.none;
+        tileOne = TileValues.TileType.none;
+
         floodPts = 0f;
         pedSafetyPts = 0f;
         qualLifePts = 0f;
@@ -25,7 +31,7 @@ public class Scoreholder
 
     public void printScore()
     {
-        Debug.Log("Points: " + pedSafetyPts + ", " + floodPts + "," + qualLifePts);
+        Debug.Log("Points: " + pedSafetyPts + ", " + floodPts + "," + qualLifePts + ", interaction: " + tileOne.ToString() + ", " + tileTwo.ToString());
     }
 
     public int getCombinedScore()

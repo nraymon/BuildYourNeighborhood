@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637583008179257475
+      ticks: 637577377662969099
     m_Hash: 1984412431
   m_LockFileStatus:
     m_FilePath: C:/Users/pchip/Documents/Engineering_Courses/CS461_Capstone/BuildYourNeighborhood/Temp3D_BYN_Project/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637583008179257475
+      ticks: 637577377662979084
     m_Hash: 3232113209
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
