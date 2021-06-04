@@ -13,11 +13,6 @@ public class DetectUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     void Start()
     {
         state = GameObject.Find("GameManager").GetComponent<StateManager>();
-        //if (this.name == "Settings")
-        //{
-        //    this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.width * .5f);
-        //    this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.height * .75f);
-        //}
 
     }
 
@@ -29,6 +24,8 @@ public class DetectUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        state.setUI(true);
+
         if (this.name == "Trash")
         {
             state.SetTrash(true);
@@ -37,6 +34,8 @@ public class DetectUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        state.setUI(false);
+
         if (this.name == "Trash")
         {
             state.SetTrash(false);

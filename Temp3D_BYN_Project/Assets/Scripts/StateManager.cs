@@ -11,6 +11,7 @@ public class StateManager : MonoBehaviour
     bool spawn = true;
 
     bool trash = false;
+    bool UI = false;
 
     // These gameObjects will be used for their positions for the tiles to spawn in UiSpawn
     public GameObject wetlandPos;
@@ -217,6 +218,16 @@ public class StateManager : MonoBehaviour
     public void SetTrash(bool x)
     {
         trash = x;
+    }
+
+    public void setUI(bool x)
+    {
+        UI = x;
+    }
+
+    public bool getUI()
+    {
+        return UI;
     }
 
 
