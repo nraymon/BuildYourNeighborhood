@@ -42,84 +42,88 @@ public class SpawnDraggable : MonoBehaviour
         //    Debug.Log(this.tileType);
         //}
 
-        if (Input.GetMouseButton(0))
+        if (state.getUI() == false)
         {
-            mouseRay = click.GenerateMouseRay();
-            RaycastHit hit;
 
-            // if the ray cast hits this object and spawning is true, then a draggable object
-            // is instantiated, has its name changed and spawn will now be false.
-            if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Draggable")) && state.GetSpawn())
+            if (Input.GetMouseButton(0))
             {
+                mouseRay = click.GenerateMouseRay();
+                RaycastHit hit;
 
-                if ((hit.collider.name == "RoadSpawner" || hit.collider.name.Substring(0, 4) == "Road") && state.GetSpawn())
+                // if the ray cast hits this object and spawning is true, then a draggable object
+                // is instantiated, has its name changed and spawn will now be false.
+                if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Draggable")) && state.GetSpawn())
                 {
-                    temp = Instantiate(tVal.GetRoad());
-                    temp.GetComponent<Draggable>().stay = true;
 
-                    if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
+                    if ((hit.collider.name == "RoadSpawner" || hit.collider.name.Substring(0, 4) == "Road") && state.GetSpawn())
                     {
-                        state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
-                        state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
-                        hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
-                        StartCoroutine(hold(hit));
-                    }
-                }
-                if ((hit.collider.name == "HouseSpawner" || hit.collider.name.Substring(0, 5) == "House") && state.GetSpawn())
-                {
-                    temp = Instantiate(tVal.GetHouse());
-                    temp.GetComponent<Draggable>().stay = true;
+                        temp = Instantiate(tVal.GetRoad());
+                        temp.GetComponent<Draggable>().stay = true;
 
-                    if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
+                        if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
+                        {
+                            state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
+                            state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
+                            hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
+                            StartCoroutine(hold(hit));
+                        }
+                    }
+                    if ((hit.collider.name == "HouseSpawner" || hit.collider.name.Substring(0, 5) == "House") && state.GetSpawn())
                     {
-                        state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
-                        state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
-                        hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
-                        StartCoroutine(hold(hit));
-                    }
-                }
-                if ((hit.collider.name == "WetSpawner" || hit.collider.name.Substring(0, 7) == "Wetland") && state.GetSpawn())
-                {
-                    temp = Instantiate(tVal.GetWet());
-                    temp.GetComponent<Draggable>().stay = true;
+                        temp = Instantiate(tVal.GetHouse());
+                        temp.GetComponent<Draggable>().stay = true;
 
-                    if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
+                        if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
+                        {
+                            state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
+                            state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
+                            hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
+                            StartCoroutine(hold(hit));
+                        }
+                    }
+                    if ((hit.collider.name == "WetSpawner" || hit.collider.name.Substring(0, 7) == "Wetland") && state.GetSpawn())
                     {
-                        state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
-                        state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
-                        hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
-                        StartCoroutine(hold(hit));
-                    }
-                }
-                if ((hit.collider.name == "BioSpawner" || hit.collider.name.Substring(0, 8) == "Bioswale") && state.GetSpawn())
-                {
-                    temp = Instantiate(tVal.GetBio());
-                    temp.GetComponent<Draggable>().stay = true;
+                        temp = Instantiate(tVal.GetWet());
+                        temp.GetComponent<Draggable>().stay = true;
 
-                    if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
+                        if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
+                        {
+                            state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
+                            state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
+                            hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
+                            StartCoroutine(hold(hit));
+                        }
+                    }
+                    if ((hit.collider.name == "BioSpawner" || hit.collider.name.Substring(0, 8) == "Bioswale") && state.GetSpawn())
                     {
-                        state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
-                        state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
-                        hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
-                        StartCoroutine(hold(hit));
+                        temp = Instantiate(tVal.GetBio());
+                        temp.GetComponent<Draggable>().stay = true;
+
+                        if (hit.collider.GetComponent<SpawnDraggable>().ephemeral)
+                        {
+                            state.addThing(hit.collider.GetComponent<SpawnDraggable>().gridObj);
+                            state.Undo(hit.collider.GetComponent<SpawnDraggable>().gridObj.name);
+                            hit.collider.GetComponent<SpawnDraggable>().gridObj.SetActive(true);
+                            StartCoroutine(hold(hit));
+                        }
                     }
+
+                    //temp = Instantiate(this.spawnObj);
+                    temp.name = temp.name + num;
+                    state.SetSpawn(false);
+                    num++;
+
+                    TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
+                    //tileValues.name = "Road Tile " + num;
+                    //tileValues.type = "Road";
+                    //tileValues.beauty = 1.5f;
+                    //tileValues.temperature = 2.0f;
+
+                    /*tileValues.AssignValues(num, tileType);*/ // this line seems to cause tiles to default to "road" upon SnapBack
                 }
-
-                //temp = Instantiate(this.spawnObj);
-                temp.name = temp.name + num;
-                state.SetSpawn(false);
-                num++;
-
-                TileValues tileValues = GameObject.Find("GameManager").GetComponent<TileValues>();
-                //tileValues.name = "Road Tile " + num;
-                //tileValues.type = "Road";
-                //tileValues.beauty = 1.5f;
-                //tileValues.temperature = 2.0f;
-
-                /*tileValues.AssignValues(num, tileType);*/ // this line seems to cause tiles to default to "road" upon SnapBack
             }
-        }
 
+        }
 
     }
 

@@ -5,7 +5,8 @@ using UnityEngine;
 public class Scoring
 {
 
-    // calculate score between two blocks 
+    // loops through the grid of tiles and calculates all interaction point values.
+    // used to update the total score and the three goal bars.
     public Scoreholder GetScore(TileValues.TileType[,] gridTiles)
     {
         Scoreholder totalScores = new Scoreholder();    // stores total score 
@@ -53,11 +54,64 @@ public class Scoring
         return totalScores;
     }
 
+
+
+    // Calculate scores between most recently placed blocks and up to 4 adjacent blocks surrounding it. 
+    // Useful for passing text into the scorepanel.
+    public List<Scoreholder> GetCurrentTileScores(TileValues.TileType[,] gridTiles, int col, int row)
+    {
+        List<Scoreholder> scoreList = new List<Scoreholder>();    // stores list of current tile's interactions with surrounding tiles 
+        Scoreholder scoreholder = new Scoreholder();              // stores current tile interaction's score and description
+
+        // check if tile is at boundary locations and calculate interaction scores with up to 4 adjacent tiles  
+        if (col < 4)
+        {
+            if (gridTiles[col + 1, row] != TileValues.TileType.none)
+            {
+                scoreholder = GetInteractions(gridTiles[col + 1, row], gridTiles[col, row]);
+                scoreList.Add(scoreholder);
+            }
+        }
+        if (row < 4)
+        {
+            if (gridTiles[col, row + 1] != TileValues.TileType.none)
+            {
+                scoreholder = GetInteractions(gridTiles[col, row + 1], gridTiles[col, row]);
+                scoreList.Add(scoreholder);
+            }
+        }
+        if (col > 0)
+        {
+            if (gridTiles[col - 1, row] != TileValues.TileType.none)
+            {
+                scoreholder = GetInteractions(gridTiles[col - 1, row], gridTiles[col, row]);
+                scoreList.Add(scoreholder);
+            }
+        }
+        if (row > 0)
+        {
+            if (gridTiles[col, row - 1] != TileValues.TileType.none)
+            {
+                scoreholder = GetInteractions(gridTiles[col, row - 1], gridTiles[col, row]);
+                scoreList.Add(scoreholder);
+            }
+        }
+
+        return scoreList;
+    }
+
+
+
+
+
     public Scoreholder GetInteractions(TileValues.TileType tileOne, TileValues.TileType tileTwo)
     {
         // Debug.Log("Interaction: " + tileOne + ", " + tileTwo);
         Scoreholder scoreholder = new Scoreholder();
-        
+
+        scoreholder.tileOne = tileOne;
+        scoreholder.tileTwo = tileTwo;
+
         switch(tileOne)
         {
             case TileValues.TileType.road:
@@ -230,8 +284,8 @@ public class Scoring
         }
         if ((tileOne != TileValues.TileType.none) && (tileTwo != TileValues.TileType.none)) // only log score between two actual tiles 
         {
-            Debug.Log("Interaction: " + tileOne + ", " + tileTwo);
-            scoreholder.printScore();
+/*            Debug.Log("Interaction: " + tileOne + ", " + tileTwo);
+            scoreholder.printScore();*/
         }
         return scoreholder;
     }

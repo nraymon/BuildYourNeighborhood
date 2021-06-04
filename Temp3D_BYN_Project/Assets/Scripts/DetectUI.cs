@@ -13,6 +13,7 @@ public class DetectUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     void Start()
     {
         state = GameObject.Find("GameManager").GetComponent<StateManager>();
+
     }
 
     // Update is called once per frame
@@ -23,11 +24,27 @@ public class DetectUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        state.SetTrash(true);
+
+        if (this.name == "Trash")
+        {
+            state.SetTrash(true);
+        }
+        else
+        {
+            state.setUI(true);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        state.SetTrash(false);
+
+        if (this.name == "Trash")
+        {
+            state.SetTrash(false);
+        }
+        else
+        {
+            state.setUI(false);
+        }
     }
 }

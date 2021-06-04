@@ -12,6 +12,12 @@ public class CameraMovement : MonoBehaviour
 
     private Vector3 previousPosition;
 
+    float dist;
+
+    private void Start()
+    {
+        dist = Vector3.Distance(target.position, cam.transform.position);
+    }
 
     // Update is called once per frame
     void Update()
@@ -24,8 +30,6 @@ public class CameraMovement : MonoBehaviour
         }
         else if (Input.GetMouseButton(1))
         {
-
-            float dist = Vector3.Distance(target.position, cam.transform.position);
             //true as long as touch is happening
             Vector3 newPosition = cam.ScreenToViewportPoint(Input.mousePosition);
             Vector3 direction = previousPosition - newPosition;
