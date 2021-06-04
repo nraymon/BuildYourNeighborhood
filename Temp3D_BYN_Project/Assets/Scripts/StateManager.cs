@@ -112,8 +112,14 @@ public class StateManager : MonoBehaviour
         housingGoalController.updateScore(totalScore);      // update housing/quality of life goal UI
         pedSafetyGoalController.updateScore(totalScore);    // update ped safety goal UI
 
-        // get list of interactions between most recently placed tile and adjacent blocks 
-        scoreList = scoreCalculator.GetCurrentTileScores(gridTiles, col, row);
+        // save score to player prefs 
+        PlayerPrefs.SetFloat("floodPts", totalScore.floodPts);
+        PlayerPrefs.SetFloat("pedSafetyPts", totalScore.pedSafetyPts);
+        PlayerPrefs.SetFloat("qualLifePts", totalScore.qualLifePts);
+        PlayerPrefs.Save();
+
+    // get list of interactions between most recently placed tile and adjacent blocks 
+    scoreList = scoreCalculator.GetCurrentTileScores(gridTiles, col, row);
         if (scoreList.Count() > 0)
         {
             Debug.Log("Begin list");
